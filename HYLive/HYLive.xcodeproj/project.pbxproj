@@ -16,6 +16,7 @@
 		39D85AF91F0227C700F89C19 /* HYTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D85AF81F0227C700F89C19 /* HYTitleView.swift */; };
 		39D85AFB1F0227D500F89C19 /* HYContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D85AFA1F0227D500F89C19 /* HYContentView.swift */; };
 		39D85AFD1F0227F000F89C19 /* HYPageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D85AFC1F0227F000F89C19 /* HYPageStyle.swift */; };
+		39D85AFF1F023B1F00F89C19 /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D85AFE1F023B1F00F89C19 /* UIColor-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		39D85AF81F0227C700F89C19 /* HYTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYTitleView.swift; sourceTree = "<group>"; };
 		39D85AFA1F0227D500F89C19 /* HYContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYContentView.swift; sourceTree = "<group>"; };
 		39D85AFC1F0227F000F89C19 /* HYPageStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYPageStyle.swift; sourceTree = "<group>"; };
+		39D85AFE1F023B1F00F89C19 /* UIColor-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				39D85AF51F0227A400F89C19 /* HYPageView */,
 				398CB9FE1F0105600064B37E /* AppDelegate.swift */,
 				398CBA001F0105600064B37E /* ViewController.swift */,
+				39D85AFE1F023B1F00F89C19 /* UIColor-Extension.swift */,
 				398CBA021F0105600064B37E /* Main.storyboard */,
 				398CBA051F0105600064B37E /* Assets.xcassets */,
 				398CBA071F0105600064B37E /* LaunchScreen.storyboard */,
@@ -162,6 +165,7 @@
 				39D85AF71F0227B800F89C19 /* HYPageView.swift in Sources */,
 				39D85AF91F0227C700F89C19 /* HYTitleView.swift in Sources */,
 				398CB9FF1F0105600064B37E /* AppDelegate.swift in Sources */,
+				39D85AFF1F023B1F00F89C19 /* UIColor-Extension.swift in Sources */,
 				39D85AFB1F0227D500F89C19 /* HYContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

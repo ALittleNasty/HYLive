@@ -10,4 +10,6 @@ import UIKit
 
 class HYPageStyle {
 
+    var titleHeight: CGFloat = 44.0
+    
 }

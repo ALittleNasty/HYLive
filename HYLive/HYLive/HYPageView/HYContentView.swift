@@ -10,12 +10,19 @@ import UIKit
 
 class HYContentView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    // MARK: - 属性
+    var chileVCs: [UIViewController]
+    var parentVC: UIViewController
+    
+    
+    init(frame: CGRect, childVCs: [UIViewController], parentVC: UIViewController) {
+        self.chileVCs = childVCs
+        self.parentVC = parentVC
+        super.init(frame: frame)
     }
-    */
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
 }
