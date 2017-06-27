@@ -12,6 +12,10 @@
 		398CBA041F0105600064B37E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398CBA021F0105600064B37E /* Main.storyboard */; };
 		398CBA061F0105600064B37E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 398CBA051F0105600064B37E /* Assets.xcassets */; };
 		398CBA091F0105600064B37E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398CBA071F0105600064B37E /* LaunchScreen.storyboard */; };
+		39D85AF71F0227B800F89C19 /* HYPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D85AF61F0227B800F89C19 /* HYPageView.swift */; };
+		39D85AF91F0227C700F89C19 /* HYTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D85AF81F0227C700F89C19 /* HYTitleView.swift */; };
+		39D85AFB1F0227D500F89C19 /* HYContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D85AFA1F0227D500F89C19 /* HYContentView.swift */; };
+		39D85AFD1F0227F000F89C19 /* HYPageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D85AFC1F0227F000F89C19 /* HYPageStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		398CBA051F0105600064B37E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		398CBA081F0105600064B37E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		398CBA0A1F0105600064B37E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39D85AF61F0227B800F89C19 /* HYPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYPageView.swift; sourceTree = "<group>"; };
+		39D85AF81F0227C700F89C19 /* HYTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYTitleView.swift; sourceTree = "<group>"; };
+		39D85AFA1F0227D500F89C19 /* HYContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYContentView.swift; sourceTree = "<group>"; };
+		39D85AFC1F0227F000F89C19 /* HYPageStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYPageStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 		398CB9FD1F01055F0064B37E /* HYLive */ = {
 			isa = PBXGroup;
 			children = (
+				39D85AF51F0227A400F89C19 /* HYPageView */,
 				398CB9FE1F0105600064B37E /* AppDelegate.swift */,
 				398CBA001F0105600064B37E /* ViewController.swift */,
 				398CBA021F0105600064B37E /* Main.storyboard */,
@@ -62,6 +71,17 @@
 				398CBA0A1F0105600064B37E /* Info.plist */,
 			);
 			path = HYLive;
+			sourceTree = "<group>";
+		};
+		39D85AF51F0227A400F89C19 /* HYPageView */ = {
+			isa = PBXGroup;
+			children = (
+				39D85AF61F0227B800F89C19 /* HYPageView.swift */,
+				39D85AF81F0227C700F89C19 /* HYTitleView.swift */,
+				39D85AFA1F0227D500F89C19 /* HYContentView.swift */,
+				39D85AFC1F0227F000F89C19 /* HYPageStyle.swift */,
+			);
+			path = HYPageView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +158,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				398CBA011F0105600064B37E /* ViewController.swift in Sources */,
+				39D85AFD1F0227F000F89C19 /* HYPageStyle.swift in Sources */,
+				39D85AF71F0227B800F89C19 /* HYPageView.swift in Sources */,
+				39D85AF91F0227C700F89C19 /* HYTitleView.swift in Sources */,
 				398CB9FF1F0105600064B37E /* AppDelegate.swift in Sources */,
+				39D85AFB1F0227D500F89C19 /* HYContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +328,7 @@
 				398CBA0F1F0105600064B37E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
