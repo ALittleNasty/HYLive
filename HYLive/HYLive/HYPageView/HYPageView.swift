@@ -54,5 +54,6 @@ extension HYPageView {
         addSubview(contentView)
         
         // 3.让titleView和contentView联动
+        titleView.delegate = contentView
     }
 }

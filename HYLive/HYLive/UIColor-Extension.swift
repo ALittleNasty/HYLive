@@ -14,8 +14,10 @@ extension UIColor {
     // class修饰的函数相当于OC中的 "+" 方法
     // 随机色
     class func randomColor() -> UIColor {
-        let value = CGFloat(arc4random_uniform(256)) / 255.0
-        return UIColor(red: value, green: value, blue: value, alpha: 1.0)
+        let valueR = CGFloat(arc4random_uniform(256)) / 255.0
+        let valueG = CGFloat(arc4random_uniform(256)) / 255.0
+        let valueB = CGFloat(arc4random_uniform(256)) / 255.0
+        return UIColor(red: valueR, green: valueG, blue: valueB, alpha: 1.0)
     }
     
     // a: CGFloat = 1.0 使用了swift的默认参数的属性(调用这个函数的时候这个a可以给, 也可以不给)

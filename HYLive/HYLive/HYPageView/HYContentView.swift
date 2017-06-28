@@ -93,3 +93,12 @@ extension HYContentView: UICollectionViewDelegate {
         print(indexPath.item)
     }
 }
+
+// MARK: - HYTitleViewDelegate
+extension HYContentView: HYTitleViewDelegate {
+    
+    func titleView(_ titleView: HYTitleView, targetIndex: Int) {
+        let indexPath = IndexPath(item: targetIndex, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+    }
+}
