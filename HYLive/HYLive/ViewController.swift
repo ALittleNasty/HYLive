@@ -13,16 +13,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        automaticallyAdjustsScrollViewInsets = false
                 
         // 创建pageView
         // 1.获取frame
         let frame = CGRect(x: 0, y: 64, width: view.bounds.width, height: view.bounds.height - 64)
         
         // 2.标题
-        let titles: [String] = ["推荐", "手游", "娱乐", "游戏"]
+        let titles: [String] = ["推荐", "王者农药", "娱乐", "游戏", "英雄联盟", "星际争霸", "手游", "穿越火线"]
         
         // 3.显示的风格
         let style = HYPageStyle()
+        style.isTitleViewScrollEnable = true
         
         // 4.获取pageview中所有的内容控制器
         var childVCs: [UIViewController] = [UIViewController]()

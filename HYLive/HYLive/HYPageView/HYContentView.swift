@@ -28,6 +28,8 @@ class HYContentView: UIView {
         collectionView.delegate = self
         collectionView.bounces = false
         collectionView.isPagingEnabled = true
+        // 点击状态栏不允许scrollView回到顶部
+        collectionView.scrollsToTop = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: contentCellID)
         return collectionView
