@@ -11,8 +11,11 @@ import UIKit
 class HYTitleView: UIView {
 
     // MARK: - 属性
-    var titles: [String]
-    var style: HYPageStyle
+    fileprivate var titles: [String]
+    fileprivate var style: HYPageStyle
+    // 选中label的索引, 默认为第一个: 0
+    fileprivate var selectedIndex: Int = 0
+    fileprivate lazy var titleLabels: [UILabel] = [UILabel]()
     fileprivate lazy var scrollView: UIScrollView = {
     
         let scrollView = UIScrollView(frame: self.bounds)
@@ -48,8 +51,6 @@ extension HYTitleView {
     }
     
     private func setTitleLabels() {
-    
-        var titleLabels: [UILabel] = [UILabel]()
         
         // 1.创建label
         for (i, title) in titles.enumerated() {
@@ -114,10 +115,14 @@ extension HYTitleView {
 //        // ?. 可选链
 //        print(tapLabel?.tag ?? 10000)
         
-        guard let tapLabel = tapGesture.view as? UILabel else {
+        guard let targetLabel = tapGesture.view as? UILabel else {
             return
         }
         
-        print(tapLabel.tag)
+        print(#function + "  \(targetLabel.tag)")
+        let sourceLabel = titleLabels[selectedIndex]
+        sourceLabel.textColor = style.titleNormalColor
+        targetLabel.textColor = style.titleSelectedColor
+        selectedIndex = targetLabel.tag
     }
 }
