@@ -8,9 +8,18 @@
 
 import UIKit
 
+/*
+ : class 表示: 只有类才可以遵守这个协议(结构体和枚举类型的均不可以)
+ */
+protocol HYTitleViewDelegate: class {
+    
+    func titleView(_ titleView: HYTitleView, targetIndex: Int)
+}
+
 class HYTitleView: UIView {
 
     // MARK: - 属性
+    weak var delegate: HYTitleViewDelegate?
     fileprivate var titles: [String]
     fileprivate var style: HYPageStyle
     // 选中label的索引, 默认为第一个: 0
@@ -119,10 +128,48 @@ extension HYTitleView {
             return
         }
         
+        // 如果点击的label和选中的label相同, 那么直接返回
+        guard targetLabel.tag != selectedIndex else {
+            return
+        }
+        
         print(#function + "  \(targetLabel.tag)")
+        
+        // 1.将原来的label字体改为normalColor, 选中的label字体颜色换为selectedColor
         let sourceLabel = titleLabels[selectedIndex]
         sourceLabel.textColor = style.titleNormalColor
         targetLabel.textColor = style.titleSelectedColor
+        // 2.改变选中label的索引
         selectedIndex = targetLabel.tag
+        
+        // 3.改变选中label的位置, 使其居中
+        var offsetX = targetLabel.center.x - bounds.width * 0.5
+        if offsetX < 0.0 {
+            offsetX = 0.0
+        } else if offsetX > scrollView.contentSize.width - scrollView.bounds.width {
+            offsetX = scrollView.contentSize.width - scrollView.bounds.width
+        }
+        scrollView.setContentOffset(CGPoint(x: offsetX, y: 0.0), animated: true);
+        
+        // 4.通知代理, 与contentView进行联动
+        // ?. 可选链:  若可选类型有值将会执行代码, 否则什么也不干
+        delegate?.titleView(self, targetIndex: selectedIndex)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

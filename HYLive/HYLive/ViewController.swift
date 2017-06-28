@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         let frame = CGRect(x: 0, y: 64, width: view.bounds.width, height: view.bounds.height - 64)
         
         // 2.标题
-        let titles: [String] = ["推荐", "王者农药", "娱乐", "游戏", "英雄联盟", "星际争霸", "手游", "穿越火线"]
+        let titles: [String] = ["推荐", "王者农药", "娱乐", "使命召唤", "游戏", "英雄联盟", "星际争霸", "手游", "穿越火线", "生化危机"]
         
         // 3.显示的风格
         let style = HYPageStyle()
