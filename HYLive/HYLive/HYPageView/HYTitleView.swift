@@ -143,6 +143,15 @@ extension HYTitleView {
         selectedIndex = targetLabel.tag
         
         // 3.改变选中label的位置, 使其居中
+        adjustTitleLabelPosition()
+        
+        // 4.通知代理, 与contentView进行联动
+        // ?. 可选链:  若可选类型有值将会执行代码, 否则什么也不干
+        delegate?.titleView(self, targetIndex: selectedIndex)
+    }
+    
+    fileprivate func adjustTitleLabelPosition() {
+        let targetLabel = titleLabels[selectedIndex]
         var offsetX = targetLabel.center.x - bounds.width * 0.5
         if offsetX < 0.0 {
             offsetX = 0.0
@@ -150,14 +159,35 @@ extension HYTitleView {
             offsetX = scrollView.contentSize.width - scrollView.bounds.width
         }
         scrollView.setContentOffset(CGPoint(x: offsetX, y: 0.0), animated: true);
-        
-        // 4.通知代理, 与contentView进行联动
-        // ?. 可选链:  若可选类型有值将会执行代码, 否则什么也不干
-        delegate?.titleView(self, targetIndex: selectedIndex)
     }
 }
 
+// MARK: - HYContentViewDelegate
+extension HYTitleView: HYContentViewDelegate {
 
+    func contentView(_ contentView: HYContentView, didEndScroll inIndex: Int) {
+        
+        let targetLabel = titleLabels[inIndex]
+        let sourceLabel = titleLabels[selectedIndex]
+        sourceLabel.textColor = style.titleNormalColor
+        targetLabel.textColor = style.titleSelectedColor
+        // 2.改变选中label的索引
+        selectedIndex = inIndex
+        
+        // 3.改变选中label的位置, 使其居中
+        var offsetX = targetLabel.center.x - bounds.width * 0.5
+        if offsetX < 0.0 {
+            offsetX = 0.0
+        } else if offsetX > scrollView.contentSize.width - scrollView.bounds.width {
+            offsetX = scrollView.contentSize.width - scrollView.bounds.width
+        }
+        scrollView.setContentOffset(CGPoint(x: offsetX, y: 0.0), animated: true);
+    }
+    
+    func contentView(_ contentView: HYContentView, sourceIndex: Int, targetIndex: Int, progress: CGFloat) {
+        
+    }
+}
 
 
 

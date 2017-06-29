@@ -10,9 +10,18 @@ import UIKit
 
 private let contentCellID = "contentCellIdentifier"
 
+protocol HYContentViewDelegate: class {
+    
+    func contentView(_ contentView: HYContentView, didEndScroll inIndex: Int)
+    
+    func contentView(_ contentView: HYContentView, sourceIndex: Int, targetIndex: Int, progress: CGFloat)
+}
+
 class HYContentView: UIView {
 
     // MARK: - 属性
+    weak var delegate: HYContentViewDelegate?
+    fileprivate var startOffsetX: CGFloat = 0
     fileprivate var childVCs: [UIViewController]
     fileprivate var parentVC: UIViewController
     fileprivate lazy var collectionView : UICollectionView = {
@@ -89,6 +98,58 @@ extension HYContentView: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension HYContentView: UICollectionViewDelegate {
+    
+    // 结束减速
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        scrollViewDidEndScroll()
+    }
+    
+    // 结束拖拽
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            scrollViewDidEndScroll()
+        }
+    }
+    
+    // 开始拖拽
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        startOffsetX = scrollView.contentOffset.x
+    }
+    
+    // 正在滚动, 调用很多次
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        // 获取当前实时偏移量
+        let contentOffsetX = scrollView.contentOffset.x
+        // 0.先判断有没有滑动, 没有滑动直接返回
+        guard startOffsetX != contentOffsetX else {
+            return
+        }
+        
+        var sourceIndex: Int = 0
+        var targetIndex: Int = 0
+        let progress: CGFloat = abs(startOffsetX - contentOffsetX) / scrollView.bounds.width
+        
+        if contentOffsetX > startOffsetX {  // 向左滑动
+            sourceIndex = Int(scrollView.contentOffset.x / scrollView.bounds.width)
+            targetIndex = sourceIndex + 1
+            // 防止越界
+            if targetIndex >= childVCs.count {
+                targetIndex = childVCs.count - 1
+            }
+        } else {                            // 向右滑动
+            targetIndex = Int(scrollView.contentOffset.x / scrollView.bounds.width)
+            sourceIndex = targetIndex + 1
+        }
+        
+        delegate?.contentView(self, sourceIndex: sourceIndex, targetIndex: targetIndex, progress: progress)
+    }
+    
+    private func scrollViewDidEndScroll() {
+        let index = Int(collectionView.contentOffset.x / collectionView.bounds.width)
+        delegate?.contentView(self, didEndScroll: index)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.item)
     }
