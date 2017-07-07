@@ -22,9 +22,20 @@ class HYTitleView: UIView {
     weak var delegate: HYTitleViewDelegate?
     fileprivate var titles: [String]
     fileprivate var style: HYPageStyle
+    
     // 选中label的索引, 默认为第一个: 0
     fileprivate var selectedIndex: Int = 0
     fileprivate lazy var titleLabels: [UILabel] = [UILabel]()
+    fileprivate lazy var normalRGB: (CGFloat, CGFloat, CGFloat) = self.style.titleNormalColor.getRGBValue()
+    fileprivate lazy var selectRGB: (CGFloat, CGFloat, CGFloat) = self.style.titleSelectedColor.getRGBValue()
+    fileprivate lazy var deltaRGB: (CGFloat, CGFloat, CGFloat) = {
+        
+        let deltaR = self.normalRGB.0 - self.selectRGB.0
+        let deltaG = self.normalRGB.1 - self.selectRGB.1
+        let deltaB = self.normalRGB.2 - self.selectRGB.2
+        return (deltaR, deltaG, deltaB)
+    }()
+    
     fileprivate lazy var scrollView: UIScrollView = {
     
         let scrollView = UIScrollView(frame: self.bounds)
@@ -186,6 +197,13 @@ extension HYTitleView: HYContentViewDelegate {
     
     func contentView(_ contentView: HYContentView, sourceIndex: Int, targetIndex: Int, progress: CGFloat) {
         
+        // 1. 根据index获取对应的label
+        let sourceLabel = titleLabels[sourceIndex]
+        let targetLabel = titleLabels[targetIndex]
+        
+        // 2. 颜色渐变
+        sourceLabel.textColor = UIColor(r: selectRGB.0 - deltaRGB.0 * progress, g: selectRGB.1 - deltaRGB.1 * progress, b: selectRGB.2 - deltaRGB.2 * progress)
+        targetLabel.textColor = UIColor(r: normalRGB.0 + deltaRGB.0 * progress, g: normalRGB.1 + deltaRGB.1 * progress, b: normalRGB.2 + deltaRGB.2 * progress)
     }
 }
 

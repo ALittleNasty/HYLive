@@ -70,3 +70,15 @@ extension UIColor {
         self.init(r: CGFloat(r), g: CGFloat(g), b: CGFloat(b))
     }
 }
+
+// MARK:- 从颜色中获取RGB值
+extension UIColor {
+    
+    func getRGBValue() -> (CGFloat, CGFloat, CGFloat) {
+        
+        guard let components = cgColor.components else {
+            fatalError("错误!!! 请确保改颜色是由RGB值的方式创建")
+        }
+        return (components[0], components[1], components[2])
+    }
+}
