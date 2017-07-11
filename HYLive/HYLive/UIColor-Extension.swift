@@ -76,9 +76,21 @@ extension UIColor {
     
     func getRGBValue() -> (CGFloat, CGFloat, CGFloat) {
         
-        guard let components = cgColor.components else {
-            fatalError("错误!!! 请确保改颜色是由RGB值的方式创建")
+//        guard let components = cgColor.components else {
+//            fatalError("错误!!! 请确保改颜色是由RGB值的方式创建")
+//        }
+//        return (components[0] * 255, components[1] * 255, components[2] * 255)
+        
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        
+        let isSuccess = self.getRed(&red, green: &green, blue: &blue, alpha: nil)
+        
+        if isSuccess {
+            return (red * 255, green * 255, blue * 255)
+        } else {
+            fatalError("错误!!! 未能获取到RGB值")
         }
-        return (components[0] * 255, components[1] * 255, components[2] * 255)
     }
 }

@@ -172,7 +172,17 @@ extension HYTitleView {
         // 2.改变选中label的索引
         selectedIndex = targetLabel.tag
         
-        // 3.改变滚动条的位置
+        // 3. 设置缩放
+        if style.isNeedTitleScale {
+            
+            UIView.animate(withDuration: 0.25, animations: {
+                targetLabel.transform = CGAffineTransform(scaleX: self.style.maxScale, y: self.style.maxScale)
+                sourceLabel.transform = CGAffineTransform.identity
+            })
+        }
+        
+        // 4.改变滚动条的位置
+        // 因为滚动条的变化依赖于titleLabel的frame, 但是transform会改变frame, 所以先进行缩放变换, 再改变bottomLine的位置
         if style.isShowBottomLine {
             
             UIView.animate(withDuration: 0.25, animations: {
@@ -182,18 +192,9 @@ extension HYTitleView {
             })
         }
         
-        // 4.通知代理, 与contentView进行联动
+        // 5.通知代理, 与contentView进行联动
         // ?. 可选链:  若可选类型有值将会执行代码, 否则什么也不干
         delegate?.titleView(self, targetIndex: selectedIndex)
-        
-        // 5. 设置缩放
-        if style.isNeedTitleScale {
-            
-            UIView.animate(withDuration: 0.25, animations: { 
-                targetLabel.transform = CGAffineTransform(scaleX: self.style.maxScale, y: self.style.maxScale)
-                sourceLabel.transform = CGAffineTransform.identity
-            })
-        }
     }
     
     fileprivate func adjustTitleLabelPosition(targetIndex: Int) {
@@ -238,22 +239,23 @@ extension HYTitleView: HYContentViewDelegate {
         sourceLabel.textColor = UIColor(r: selectRGB.0 - deltaRGB.0 * progress, g: selectRGB.1 - deltaRGB.1 * progress, b: selectRGB.2 - deltaRGB.2 * progress)
         targetLabel.textColor = UIColor(r: normalRGB.0 + deltaRGB.0 * progress, g: normalRGB.1 + deltaRGB.1 * progress, b: normalRGB.2 + deltaRGB.2 * progress)
         
-        // 3. 计算底部滚动条的width和x的变化
-        if style.isShowBottomLine {
-            
-            let deltaWidth = targetLabel.frame.width - sourceLabel.frame.width
-            let deltaX = targetLabel.frame.origin.x - sourceLabel.frame.origin.x
-            bottomLine.frame.origin.x = sourceLabel.frame.origin.x + progress * deltaX
-            bottomLine.frame.size.width = sourceLabel.frame.width + progress * deltaWidth
-        }
-        
-        // 4. 设置缩放
+        // 3. 设置缩放
         if style.isNeedTitleScale {
             
             let deltaScale = (style.maxScale - 1.0)
             
             targetLabel.transform = CGAffineTransform(scaleX: (1.0 + deltaScale * progress), y: (1.0 + deltaScale * progress))
             sourceLabel.transform = CGAffineTransform(scaleX: (style.maxScale - deltaScale * progress), y: (style.maxScale - deltaScale * progress))
+        }
+        
+        // 4. 计算底部滚动条的width和x的变化
+        // 因为滚动条的变化依赖于titleLabel的frame, 但是transform会改变frame, 所以先进行缩放变换, 再改变bottomLine的位置
+        if style.isShowBottomLine {
+            
+            let deltaWidth = targetLabel.frame.width - sourceLabel.frame.width
+            let deltaX = targetLabel.frame.origin.x - sourceLabel.frame.origin.x
+            bottomLine.frame.origin.x = sourceLabel.frame.origin.x + progress * deltaX
+            bottomLine.frame.size.width = sourceLabel.frame.width + progress * deltaWidth
         }
     }
 }
