@@ -45,6 +45,13 @@ class HYTitleView: UIView {
         return scrollView
     }()
     
+    fileprivate lazy var bottomLine: UIView = {
+        
+        let line = UIView()
+        line.backgroundColor = self.style.bottomLineColor
+        return line
+    }()
+    
     // MARK: - 构造函数
     init(frame: CGRect, titles: [String], style: HYPageStyle) {
         self.titles = titles
@@ -68,6 +75,19 @@ extension HYTitleView {
         
         // 2. 添加标题
         setTitleLabels()
+        
+        // 3. 初始化底部的滚动条
+        if style.isShowBottomLine == true {
+            setBottomLine()
+        }
+    }
+    
+    private func setBottomLine() {
+    
+        scrollView.addSubview(bottomLine)
+        bottomLine.frame = titleLabels.first!.frame
+        bottomLine.frame.origin.y = style.titleHeight - style.bottomLineHeight
+        bottomLine.frame.size.height = style.bottomLineHeight
     }
     
     private func setTitleLabels() {
@@ -124,6 +144,11 @@ extension HYTitleView {
             let width = titleLabels.last!.frame.maxX + style.titleMargin * 0.5
             scrollView.contentSize = CGSize(width: width, height: bounds.height)
         }
+        
+        // 4. 设置缩放
+        if style.isNeedTitleScale {
+            titleLabels.first?.transform = CGAffineTransform(scaleX: style.maxScale, y: style.maxScale)
+        }
     }
 }
 
@@ -140,18 +165,35 @@ extension HYTitleView {
         guard targetLabel.tag != selectedIndex else {
             return
         }
-                
+        
+        let sourceLabel = titleLabels[selectedIndex];
         // 1.将原来的label字体改为normalColor, 选中的label字体颜色换为selectedColor
         adjustTitleLabelPosition(targetIndex: targetLabel.tag)
         // 2.改变选中label的索引
         selectedIndex = targetLabel.tag
         
-        // 3.改变选中label的位置, 使其居中
-//        adjustTitleLabelPosition()
+        // 3.改变滚动条的位置
+        if style.isShowBottomLine {
+            
+            UIView.animate(withDuration: 0.25, animations: {
+                
+                self.bottomLine.frame.origin.x = targetLabel.frame.origin.x
+                self.bottomLine.frame.size.width = targetLabel.frame.width
+            })
+        }
         
         // 4.通知代理, 与contentView进行联动
         // ?. 可选链:  若可选类型有值将会执行代码, 否则什么也不干
         delegate?.titleView(self, targetIndex: selectedIndex)
+        
+        // 5. 设置缩放
+        if style.isNeedTitleScale {
+            
+            UIView.animate(withDuration: 0.25, animations: { 
+                targetLabel.transform = CGAffineTransform(scaleX: self.style.maxScale, y: self.style.maxScale)
+                sourceLabel.transform = CGAffineTransform.identity
+            })
+        }
     }
     
     fileprivate func adjustTitleLabelPosition(targetIndex: Int) {
@@ -195,6 +237,24 @@ extension HYTitleView: HYContentViewDelegate {
         // 2. 颜色渐变
         sourceLabel.textColor = UIColor(r: selectRGB.0 - deltaRGB.0 * progress, g: selectRGB.1 - deltaRGB.1 * progress, b: selectRGB.2 - deltaRGB.2 * progress)
         targetLabel.textColor = UIColor(r: normalRGB.0 + deltaRGB.0 * progress, g: normalRGB.1 + deltaRGB.1 * progress, b: normalRGB.2 + deltaRGB.2 * progress)
+        
+        // 3. 计算底部滚动条的width和x的变化
+        if style.isShowBottomLine {
+            
+            let deltaWidth = targetLabel.frame.width - sourceLabel.frame.width
+            let deltaX = targetLabel.frame.origin.x - sourceLabel.frame.origin.x
+            bottomLine.frame.origin.x = sourceLabel.frame.origin.x + progress * deltaX
+            bottomLine.frame.size.width = sourceLabel.frame.width + progress * deltaWidth
+        }
+        
+        // 4. 设置缩放
+        if style.isNeedTitleScale {
+            
+            let deltaScale = (style.maxScale - 1.0)
+            
+            targetLabel.transform = CGAffineTransform(scaleX: (1.0 + deltaScale * progress), y: (1.0 + deltaScale * progress))
+            sourceLabel.transform = CGAffineTransform(scaleX: (style.maxScale - deltaScale * progress), y: (style.maxScale - deltaScale * progress))
+        }
     }
 }
 

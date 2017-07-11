@@ -16,5 +16,9 @@ class HYPageStyle {
     var titleFont: UIFont = UIFont.systemFont(ofSize: 14) // 标题文本的字体大小
     var isTitleViewScrollEnable: Bool = false   // 标题是否可以滚动(默认不可以)
     var titleMargin: CGFloat = 20 // 标题可以滚动情况下的文字间距
-    
+    var isShowBottomLine: Bool = true // 默认显示标题下方的滚动条
+    var bottomLineColor: UIColor = UIColor(r: 255, g: 127, b: 0) // 滚动条颜色
+    var bottomLineHeight: CGFloat = 2 // 滚动条高度
+    var isNeedTitleScale: Bool = false // 标题是否需要缩放(默认无缩放效果)
+    var maxScale: CGFloat = 1.2 // 最大缩放的倍数
 }
