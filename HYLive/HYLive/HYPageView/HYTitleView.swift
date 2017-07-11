@@ -30,9 +30,9 @@ class HYTitleView: UIView {
     fileprivate lazy var selectRGB: (CGFloat, CGFloat, CGFloat) = self.style.titleSelectedColor.getRGBValue()
     fileprivate lazy var deltaRGB: (CGFloat, CGFloat, CGFloat) = {
         
-        let deltaR = self.normalRGB.0 - self.selectRGB.0
-        let deltaG = self.normalRGB.1 - self.selectRGB.1
-        let deltaB = self.normalRGB.2 - self.selectRGB.2
+        let deltaR = self.selectRGB.0 - self.normalRGB.0
+        let deltaG = self.selectRGB.1 - self.normalRGB.1
+        let deltaB = self.selectRGB.2 - self.normalRGB.2
         return (deltaR, deltaG, deltaB)
     }()
     
@@ -131,9 +131,6 @@ extension HYTitleView {
 extension HYTitleView {
     
     @objc fileprivate func clickLabelWith(tapGesture: UITapGestureRecognizer) {
-//        let tapLabel = tapGesture.view as? UILabel
-//        // ?. 可选链
-//        print(tapLabel?.tag ?? 10000)
         
         guard let targetLabel = tapGesture.view as? UILabel else {
             return
@@ -143,26 +140,34 @@ extension HYTitleView {
         guard targetLabel.tag != selectedIndex else {
             return
         }
-        
-        print(#function + "  \(targetLabel.tag)")
-        
+                
         // 1.将原来的label字体改为normalColor, 选中的label字体颜色换为selectedColor
-        let sourceLabel = titleLabels[selectedIndex]
-        sourceLabel.textColor = style.titleNormalColor
-        targetLabel.textColor = style.titleSelectedColor
+        adjustTitleLabelPosition(targetIndex: targetLabel.tag)
         // 2.改变选中label的索引
         selectedIndex = targetLabel.tag
         
         // 3.改变选中label的位置, 使其居中
-        adjustTitleLabelPosition()
+//        adjustTitleLabelPosition()
         
         // 4.通知代理, 与contentView进行联动
         // ?. 可选链:  若可选类型有值将会执行代码, 否则什么也不干
         delegate?.titleView(self, targetIndex: selectedIndex)
     }
     
-    fileprivate func adjustTitleLabelPosition() {
-        let targetLabel = titleLabels[selectedIndex]
+    fileprivate func adjustTitleLabelPosition(targetIndex: Int) {
+        
+        guard selectedIndex != targetIndex else {
+            return
+        }
+        
+        let sourceLabel = titleLabels[selectedIndex]
+        let targetLabel = titleLabels[targetIndex]
+        
+        sourceLabel.textColor = style.titleNormalColor
+        targetLabel.textColor = style.titleSelectedColor
+        
+        selectedIndex = targetIndex
+        
         var offsetX = targetLabel.center.x - bounds.width * 0.5
         if offsetX < 0.0 {
             offsetX = 0.0
@@ -178,21 +183,7 @@ extension HYTitleView: HYContentViewDelegate {
 
     func contentView(_ contentView: HYContentView, didEndScroll inIndex: Int) {
         
-        let targetLabel = titleLabels[inIndex]
-        let sourceLabel = titleLabels[selectedIndex]
-        sourceLabel.textColor = style.titleNormalColor
-        targetLabel.textColor = style.titleSelectedColor
-        // 2.改变选中label的索引
-        selectedIndex = inIndex
-        
-        // 3.改变选中label的位置, 使其居中
-        var offsetX = targetLabel.center.x - bounds.width * 0.5
-        if offsetX < 0.0 {
-            offsetX = 0.0
-        } else if offsetX > scrollView.contentSize.width - scrollView.bounds.width {
-            offsetX = scrollView.contentSize.width - scrollView.bounds.width
-        }
-        scrollView.setContentOffset(CGPoint(x: offsetX, y: 0.0), animated: true);
+        adjustTitleLabelPosition(targetIndex: inIndex)
     }
     
     func contentView(_ contentView: HYContentView, sourceIndex: Int, targetIndex: Int, progress: CGFloat) {

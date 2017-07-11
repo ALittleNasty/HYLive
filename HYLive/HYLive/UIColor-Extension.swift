@@ -79,6 +79,6 @@ extension UIColor {
         guard let components = cgColor.components else {
             fatalError("错误!!! 请确保改颜色是由RGB值的方式创建")
         }
-        return (components[0], components[1], components[2])
+        return (components[0] * 255, components[1] * 255, components[2] * 255)
     }
 }

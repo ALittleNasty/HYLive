@@ -21,6 +21,7 @@ class HYContentView: UIView {
 
     // MARK: - 属性
     weak var delegate: HYContentViewDelegate?
+    fileprivate var isForbidDelegate: Bool = false
     fileprivate var startOffsetX: CGFloat = 0
     fileprivate var childVCs: [UIViewController]
     fileprivate var parentVC: UIViewController
@@ -114,6 +115,7 @@ extension HYContentView: UICollectionViewDelegate {
     // 开始拖拽
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         startOffsetX = scrollView.contentOffset.x
+        isForbidDelegate = false
     }
     
     // 正在滚动, 调用很多次
@@ -121,28 +123,33 @@ extension HYContentView: UICollectionViewDelegate {
         
         // 获取当前实时偏移量
         let contentOffsetX = scrollView.contentOffset.x
-        // 0.先判断有没有滑动, 没有滑动直接返回
-        guard startOffsetX != contentOffsetX else {
+        // 0.先判断有没有滑动, 没有滑动直接返回 是否禁止代理事件
+        guard startOffsetX != contentOffsetX && !isForbidDelegate else {
             return
         }
         
-        var sourceIndex: Int = 0
         var targetIndex: Int = 0
-        let progress: CGFloat = abs(startOffsetX - contentOffsetX) / scrollView.bounds.width
+        var progress: CGFloat = 0
+        let currentIndex = Int(startOffsetX / scrollView.bounds.width)
         
         if contentOffsetX > startOffsetX {  // 向左滑动
-            sourceIndex = Int(scrollView.contentOffset.x / scrollView.bounds.width)
-            targetIndex = sourceIndex + 1
+            targetIndex = currentIndex + 1
             // 防止越界
             if targetIndex >= childVCs.count {
                 targetIndex = childVCs.count - 1
             }
+            progress = (contentOffsetX - startOffsetX) / scrollView.bounds.width
+            
         } else {                            // 向右滑动
-            targetIndex = Int(scrollView.contentOffset.x / scrollView.bounds.width)
-            sourceIndex = targetIndex + 1
+            targetIndex = currentIndex - 1
+            if targetIndex < 0 {
+                targetIndex = 0
+            }
+            
+            progress = (startOffsetX - contentOffsetX) / scrollView.bounds.width
         }
         
-        delegate?.contentView(self, sourceIndex: sourceIndex, targetIndex: targetIndex, progress: progress)
+        delegate?.contentView(self, sourceIndex: currentIndex, targetIndex: targetIndex, progress: progress)
     }
     
     private func scrollViewDidEndScroll() {
@@ -159,7 +166,14 @@ extension HYContentView: UICollectionViewDelegate {
 extension HYContentView: HYTitleViewDelegate {
     
     func titleView(_ titleView: HYTitleView, targetIndex: Int) {
+        
+        // 0. 禁止代理
+        isForbidDelegate = true
+        
+        // 1. 获取indexPath
         let indexPath = IndexPath(item: targetIndex, section: 0)
+        
+        // 根据titleView点击的index , 滚动到正确的位置
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
     }
 }

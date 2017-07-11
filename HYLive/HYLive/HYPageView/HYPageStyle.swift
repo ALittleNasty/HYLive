@@ -11,7 +11,7 @@ import UIKit
 class HYPageStyle {
 
     var titleHeight: CGFloat = 44.0 // 标题View的高度
-    var titleNormalColor: UIColor = UIColor(r: 255, g: 255, b: 255) // 标题的正常状态颜色
+    var titleNormalColor: UIColor = UIColor(r: 0, g: 0, b: 0) // 标题的正常状态颜色
     var titleSelectedColor: UIColor = UIColor(r: 255, g: 127, b: 0) // 标题文本的选种颜色
     var titleFont: UIFont = UIFont.systemFont(ofSize: 14) // 标题文本的字体大小
     var isTitleViewScrollEnable: Bool = false   // 标题是否可以滚动(默认不可以)
