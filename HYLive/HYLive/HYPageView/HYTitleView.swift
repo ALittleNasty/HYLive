@@ -52,6 +52,14 @@ class HYTitleView: UIView {
         return line
     }()
     
+    fileprivate lazy var coverView: UIView = {
+    
+        let coverView = UIView()
+        coverView.backgroundColor = self.style.coverViewBackgroundColor
+        coverView.alpha = self.style.coverViewAlpha
+        return coverView
+    }()
+    
     // MARK: - 构造函数
     init(frame: CGRect, titles: [String], style: HYPageStyle) {
         self.titles = titles
@@ -80,6 +88,31 @@ extension HYTitleView {
         if style.isShowBottomLine == true {
             setBottomLine()
         }
+        
+        // 4. 初始化遮罩
+        if style.isShowCoverView {
+            setupCoverView()
+        }
+    }
+    
+    private func setupCoverView() {
+    
+        // 将遮罩插入到titleLabel的下面
+        scrollView.insertSubview(coverView, at: 0)
+        guard let firstLabel = titleLabels.first else { return }
+        var coverX: CGFloat = firstLabel.frame.origin.x
+        let coverY: CGFloat = (firstLabel.frame.height - style.coverViewHeight) * 0.5
+        var coverW: CGFloat = firstLabel.frame.width
+        let coverH: CGFloat = style.coverViewHeight
+        coverView.layer.masksToBounds = true
+        coverView.layer.cornerRadius = style.coverViewCornerRadius
+        
+        if style.isTitleViewScrollEnable {
+            coverX -= style.coverViewMargin
+            coverW = coverW + style.coverViewMargin * 2
+        }
+        
+        coverView.frame = CGRect(x: coverX, y: coverY, width: coverW, height: coverH)
     }
     
     private func setBottomLine() {
@@ -186,22 +219,40 @@ extension HYTitleView {
         if style.isShowBottomLine {
             
             UIView.animate(withDuration: 0.25, animations: {
-                
                 self.bottomLine.frame.origin.x = targetLabel.frame.origin.x
                 self.bottomLine.frame.size.width = targetLabel.frame.width
             })
         }
         
-        // 5.通知代理, 与contentView进行联动
+        // 5.改变遮罩的位置
+        if style.isShowCoverView {
+            
+            var coverW: CGFloat = 0
+            var coverX: CGFloat = 0
+            if style.isTitleViewScrollEnable {
+                coverX = targetLabel.frame.origin.x - style.coverViewMargin
+                coverW = targetLabel.frame.width + style.coverViewMargin * 2
+            } else {
+                coverX = targetLabel.frame.origin.x
+                coverW = targetLabel.frame.width
+            }
+            
+            UIView.animate(withDuration: 0.25, animations: { 
+                self.coverView.frame.origin.x = coverX
+                self.coverView.frame.size.width = coverW
+            })
+        }
+        
+        // 6.通知代理, 与contentView进行联动
         // ?. 可选链:  若可选类型有值将会执行代码, 否则什么也不干
         delegate?.titleView(self, targetIndex: selectedIndex)
     }
     
     fileprivate func adjustTitleLabelPosition(targetIndex: Int) {
         
-        guard selectedIndex != targetIndex else {
-            return
-        }
+        guard style.isTitleViewScrollEnable else { return }
+        
+        guard selectedIndex != targetIndex else { return }
         
         let sourceLabel = titleLabels[selectedIndex]
         let targetLabel = titleLabels[targetIndex]
@@ -256,6 +307,20 @@ extension HYTitleView: HYContentViewDelegate {
             let deltaX = targetLabel.frame.origin.x - sourceLabel.frame.origin.x
             bottomLine.frame.origin.x = sourceLabel.frame.origin.x + progress * deltaX
             bottomLine.frame.size.width = sourceLabel.frame.width + progress * deltaWidth
+        }
+        
+        // 5.改变遮罩的位置
+        if style.isShowCoverView {
+            
+            let deltaCoverW: CGFloat = targetLabel.frame.width - sourceLabel.frame.width
+            let deltaCoverX: CGFloat = targetLabel.frame.origin.x - sourceLabel.frame.origin.x
+            if style.isTitleViewScrollEnable {
+                coverView.frame.origin.x = sourceLabel.frame.origin.x - style.coverViewMargin + deltaCoverX * progress
+                coverView.frame.size.width = sourceLabel.frame.width + style.coverViewMargin * 2 + deltaCoverW * progress
+            } else {
+                coverView.frame.origin.x = sourceLabel.frame.origin.x + deltaCoverX * progress
+                coverView.frame.size.width = sourceLabel.frame.width + deltaCoverW * progress
+            }
         }
     }
 }

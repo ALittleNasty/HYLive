@@ -25,7 +25,9 @@ class ViewController: UIViewController {
         // 3.显示的风格
         let style = HYPageStyle()
         style.isTitleViewScrollEnable = true
-        style.isNeedTitleScale = true
+        style.isNeedTitleScale = false
+        style.isShowBottomLine = false
+        style.isShowCoverView = true
         
         // 4.获取pageview中所有的内容控制器
         var childVCs: [UIViewController] = [UIViewController]()
