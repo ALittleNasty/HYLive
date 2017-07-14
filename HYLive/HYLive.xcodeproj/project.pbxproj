@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39307F5E1F1759BC00D4F243 /* WaterFallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39307F5D1F1759BC00D4F243 /* WaterFallViewController.swift */; };
 		398CB9FF1F0105600064B37E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398CB9FE1F0105600064B37E /* AppDelegate.swift */; };
 		398CBA011F0105600064B37E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398CBA001F0105600064B37E /* ViewController.swift */; };
 		398CBA041F0105600064B37E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398CBA021F0105600064B37E /* Main.storyboard */; };
 		398CBA061F0105600064B37E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 398CBA051F0105600064B37E /* Assets.xcassets */; };
 		398CBA091F0105600064B37E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398CBA071F0105600064B37E /* LaunchScreen.storyboard */; };
+		39BC9CCD1F1897F6001DECD0 /* HYWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC9CCC1F1897F6001DECD0 /* HYWaterfallLayout.swift */; };
 		39D85AF71F0227B800F89C19 /* HYPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D85AF61F0227B800F89C19 /* HYPageView.swift */; };
 		39D85AF91F0227C700F89C19 /* HYTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D85AF81F0227C700F89C19 /* HYTitleView.swift */; };
 		39D85AFB1F0227D500F89C19 /* HYContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D85AFA1F0227D500F89C19 /* HYContentView.swift */; };
@@ -20,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		39307F5D1F1759BC00D4F243 /* WaterFallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterFallViewController.swift; sourceTree = "<group>"; };
 		398CB9FB1F01055F0064B37E /* HYLive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HYLive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		398CB9FE1F0105600064B37E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		398CBA001F0105600064B37E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -27,6 +30,7 @@
 		398CBA051F0105600064B37E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		398CBA081F0105600064B37E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		398CBA0A1F0105600064B37E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39BC9CCC1F1897F6001DECD0 /* HYWaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYWaterfallLayout.swift; sourceTree = "<group>"; };
 		39D85AF61F0227B800F89C19 /* HYPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYPageView.swift; sourceTree = "<group>"; };
 		39D85AF81F0227C700F89C19 /* HYTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYTitleView.swift; sourceTree = "<group>"; };
 		39D85AFA1F0227D500F89C19 /* HYContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYContentView.swift; sourceTree = "<group>"; };
@@ -67,6 +71,8 @@
 				39D85AF51F0227A400F89C19 /* HYPageView */,
 				398CB9FE1F0105600064B37E /* AppDelegate.swift */,
 				398CBA001F0105600064B37E /* ViewController.swift */,
+				39307F5D1F1759BC00D4F243 /* WaterFallViewController.swift */,
+				39BC9CCC1F1897F6001DECD0 /* HYWaterfallLayout.swift */,
 				39D85AFE1F023B1F00F89C19 /* UIColor-Extension.swift */,
 				398CBA021F0105600064B37E /* Main.storyboard */,
 				398CBA051F0105600064B37E /* Assets.xcassets */,
@@ -161,6 +167,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				398CBA011F0105600064B37E /* ViewController.swift in Sources */,
+				39307F5E1F1759BC00D4F243 /* WaterFallViewController.swift in Sources */,
+				39BC9CCD1F1897F6001DECD0 /* HYWaterfallLayout.swift in Sources */,
 				39D85AFD1F0227F000F89C19 /* HYPageStyle.swift in Sources */,
 				39D85AF71F0227B800F89C19 /* HYPageView.swift in Sources */,
 				39D85AF91F0227C700F89C19 /* HYTitleView.swift in Sources */,

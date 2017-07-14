@@ -19,7 +19,7 @@ class HYPageStyle {
     var titleMargin: CGFloat = 20 // 标题可以滚动情况下的文字间距
     
     // 底部滚动条相关
-    var isShowBottomLine: Bool = true // 默认显示标题下方的滚动条
+    var isShowBottomLine: Bool = true // 是否显示标题下方的滚动条(默认显示)
     var bottomLineColor: UIColor = UIColor(r: 255, g: 127, b: 0) // 滚动条颜色
     var bottomLineHeight: CGFloat = 2 // 滚动条高度
     

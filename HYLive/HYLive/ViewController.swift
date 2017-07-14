@@ -25,9 +25,8 @@ class ViewController: UIViewController {
         // 3.显示的风格
         let style = HYPageStyle()
         style.isTitleViewScrollEnable = true
-        style.isNeedTitleScale = false
-        style.isShowBottomLine = false
-        style.isShowCoverView = true
+        style.isNeedTitleScale = true
+        style.isShowBottomLine = true
         
         // 4.获取pageview中所有的内容控制器
         var childVCs: [UIViewController] = [UIViewController]()
@@ -41,6 +40,20 @@ class ViewController: UIViewController {
         
         let pageView = HYPageView(frame: frame, titles: titles, style: style, childVCs: childVCs, parentVC: self)
         view.addSubview(pageView)
+        
+        setupNavagationBar()
+    }
+    
+    
+    private func setupNavagationBar() {
+    
+        let nextItem = UIBarButtonItem(title: "NEXT", style: .plain, target: self, action: #selector(nextAction))
+        navigationItem.rightBarButtonItem = nextItem
+    }
+    
+    @objc private func nextAction() {
+        let waterFallVC = WaterFallViewController()
+        navigationController?.pushViewController(waterFallVC, animated: true)
     }
     
 }
