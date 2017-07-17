@@ -34,7 +34,7 @@ class HYWaterfallLayout: UICollectionViewFlowLayout {
 // MARK:- 1.准备所有cell的布局
 extension HYWaterfallLayout {
 
-    override func prepare() {
+    override func prepare() { 
         
         // 0. 校验collectionView是否有值
         guard let collectionView = collectionView else { return }

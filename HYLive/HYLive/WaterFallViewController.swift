@@ -16,12 +16,12 @@ class WaterFallViewController: UIViewController , UICollectionViewDataSource, HY
     
         let layout = HYWaterfallLayout()
         layout.dataSource = self
-        layout.column = 3
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
         layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
         let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         collectionView.dataSource = self
+        collectionView.backgroundColor = UIColor.white
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kCellID)
         return collectionView
     }()
@@ -50,16 +50,13 @@ class WaterFallViewController: UIViewController , UICollectionViewDataSource, HY
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCellID, for: indexPath)
         
-        cell.backgroundColor = UIColor.randomColor()
-        if indexPath.item == itemCount - 1 {
-            itemCount += 30;
-            collectionView .reloadData()
-        }
+        cell.backgroundColor = UIColor.randomColor() 
         
         return cell
     }
     
     func waterfallLayout(_ layout: HYWaterfallLayout, atItemIndex: Int) -> CGFloat {
-        return CGFloat(arc4random_uniform(100) + 100)
+        let screenWidth = UIScreen.main.bounds.width
+        return ((atItemIndex % 2) == 0) ? screenWidth * 2/3 : screenWidth * 0.5
     }
 }
