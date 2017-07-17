@@ -31,7 +31,7 @@
         <!--Navigation Controller-->
         <scene sceneID="xOf-bj-4pE">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="n6G-DA-kUb" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="n6G-DA-kUb" customClass="HYNavigationController" customModule="HYLive" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bcT-M3-hVo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

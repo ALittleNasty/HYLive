@@ -14,6 +14,7 @@
 		398CBA041F0105600064B37E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398CBA021F0105600064B37E /* Main.storyboard */; };
 		398CBA061F0105600064B37E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 398CBA051F0105600064B37E /* Assets.xcassets */; };
 		398CBA091F0105600064B37E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398CBA071F0105600064B37E /* LaunchScreen.storyboard */; };
+		39B618341F1C9092009CCDAF /* HYNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B618331F1C9092009CCDAF /* HYNavigationController.swift */; };
 		39BC9CCD1F1897F6001DECD0 /* HYWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC9CCC1F1897F6001DECD0 /* HYWaterfallLayout.swift */; };
 		39D85AF71F0227B800F89C19 /* HYPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D85AF61F0227B800F89C19 /* HYPageView.swift */; };
 		39D85AF91F0227C700F89C19 /* HYTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D85AF81F0227C700F89C19 /* HYTitleView.swift */; };
@@ -31,6 +32,7 @@
 		398CBA051F0105600064B37E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		398CBA081F0105600064B37E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		398CBA0A1F0105600064B37E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39B618331F1C9092009CCDAF /* HYNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYNavigationController.swift; sourceTree = "<group>"; };
 		39BC9CCC1F1897F6001DECD0 /* HYWaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYWaterfallLayout.swift; sourceTree = "<group>"; };
 		39D85AF61F0227B800F89C19 /* HYPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYPageView.swift; sourceTree = "<group>"; };
 		39D85AF81F0227C700F89C19 /* HYTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYTitleView.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				398CBA001F0105600064B37E /* ViewController.swift */,
 				39307F5D1F1759BC00D4F243 /* WaterFallViewController.swift */,
 				39BC9CCC1F1897F6001DECD0 /* HYWaterfallLayout.swift */,
+				39B618331F1C9092009CCDAF /* HYNavigationController.swift */,
 				39D85AFE1F023B1F00F89C19 /* UIColor-Extension.swift */,
 				398CBA021F0105600064B37E /* Main.storyboard */,
 				398CBA051F0105600064B37E /* Assets.xcassets */,
@@ -241,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39B618341F1C9092009CCDAF /* HYNavigationController.swift in Sources */,
 				398CBA011F0105600064B37E /* ViewController.swift in Sources */,
 				39307F5E1F1759BC00D4F243 /* WaterFallViewController.swift in Sources */,
 				39BC9CCD1F1897F6001DECD0 /* HYWaterfallLayout.swift in Sources */,
