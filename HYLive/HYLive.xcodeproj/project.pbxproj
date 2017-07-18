@@ -19,6 +19,7 @@
 		39254F8D1F1DF40700BBE6F0 /* HYWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39254F8C1F1DF40700BBE6F0 /* HYWaterfallLayout.swift */; };
 		39254F8F1F1DF4E200BBE6F0 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39254F8E1F1DF4E200BBE6F0 /* NetworkTools.swift */; };
 		39254F911F1DFAC000BBE6F0 /* KingfisherExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39254F901F1DFAC000BBE6F0 /* KingfisherExtension.swift */; };
+		39254F931F1E03D300BBE6F0 /* HYPageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39254F921F1E03D300BBE6F0 /* HYPageCollectionView.swift */; };
 		398CB9FF1F0105600064B37E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398CB9FE1F0105600064B37E /* AppDelegate.swift */; };
 		398CBA011F0105600064B37E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398CBA001F0105600064B37E /* ViewController.swift */; };
 		398CBA041F0105600064B37E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398CBA021F0105600064B37E /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 		39254F8C1F1DF40700BBE6F0 /* HYWaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYWaterfallLayout.swift; sourceTree = "<group>"; };
 		39254F8E1F1DF4E200BBE6F0 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		39254F901F1DFAC000BBE6F0 /* KingfisherExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KingfisherExtension.swift; sourceTree = "<group>"; };
+		39254F921F1E03D300BBE6F0 /* HYPageCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYPageCollectionView.swift; sourceTree = "<group>"; };
 		398CB9FB1F01055F0064B37E /* HYLive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HYLive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		398CB9FE1F0105600064B37E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		398CBA001F0105600064B37E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,10 +104,11 @@
 		39254F7B1F1DF38300BBE6F0 /* HYPageView */ = {
 			isa = PBXGroup;
 			children = (
+				39254F7F1F1DF38300BBE6F0 /* HYTitleView.swift */,
 				39254F7C1F1DF38300BBE6F0 /* HYContentView.swift */,
 				39254F7D1F1DF38300BBE6F0 /* HYPageStyle.swift */,
 				39254F7E1F1DF38300BBE6F0 /* HYPageView.swift */,
-				39254F7F1F1DF38300BBE6F0 /* HYTitleView.swift */,
+				39254F921F1E03D300BBE6F0 /* HYPageCollectionView.swift */,
 			);
 			path = HYPageView;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				39254F791F1DF23700BBE6F0 /* UIColor-Extension.swift in Sources */,
 				39254F8F1F1DF4E200BBE6F0 /* NetworkTools.swift in Sources */,
 				39254F801F1DF38300BBE6F0 /* HYContentView.swift in Sources */,
+				39254F931F1E03D300BBE6F0 /* HYPageCollectionView.swift in Sources */,
 				39254F911F1DFAC000BBE6F0 /* KingfisherExtension.swift in Sources */,
 				39254F811F1DF38300BBE6F0 /* HYPageStyle.swift in Sources */,
 				39254F8B1F1DF3FC00BBE6F0 /* WaterFallViewController.swift in Sources */,
