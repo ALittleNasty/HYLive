@@ -8,23 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		2B55BB50337F3F6C17837D46 /* Pods_HYLive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E66C073FE58BFBF3B079241B /* Pods_HYLive.framework */; };
-		39307F5E1F1759BC00D4F243 /* WaterFallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39307F5D1F1759BC00D4F243 /* WaterFallViewController.swift */; };
+		39254F751F1DF1BC00BBE6F0 /* types.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39254F741F1DF1BC00BBE6F0 /* types.plist */; };
+		39254F791F1DF23700BBE6F0 /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39254F781F1DF23700BBE6F0 /* UIColor-Extension.swift */; };
+		39254F801F1DF38300BBE6F0 /* HYContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39254F7C1F1DF38300BBE6F0 /* HYContentView.swift */; };
+		39254F811F1DF38300BBE6F0 /* HYPageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39254F7D1F1DF38300BBE6F0 /* HYPageStyle.swift */; };
+		39254F821F1DF38300BBE6F0 /* HYPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39254F7E1F1DF38300BBE6F0 /* HYPageView.swift */; };
+		39254F831F1DF38300BBE6F0 /* HYTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39254F7F1F1DF38300BBE6F0 /* HYTitleView.swift */; };
+		39254F891F1DF3F000BBE6F0 /* HYNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39254F881F1DF3F000BBE6F0 /* HYNavigationController.swift */; };
+		39254F8B1F1DF3FC00BBE6F0 /* WaterFallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39254F8A1F1DF3FC00BBE6F0 /* WaterFallViewController.swift */; };
+		39254F8D1F1DF40700BBE6F0 /* HYWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39254F8C1F1DF40700BBE6F0 /* HYWaterfallLayout.swift */; };
 		398CB9FF1F0105600064B37E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398CB9FE1F0105600064B37E /* AppDelegate.swift */; };
 		398CBA011F0105600064B37E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398CBA001F0105600064B37E /* ViewController.swift */; };
 		398CBA041F0105600064B37E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398CBA021F0105600064B37E /* Main.storyboard */; };
 		398CBA061F0105600064B37E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 398CBA051F0105600064B37E /* Assets.xcassets */; };
 		398CBA091F0105600064B37E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398CBA071F0105600064B37E /* LaunchScreen.storyboard */; };
-		39B618341F1C9092009CCDAF /* HYNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B618331F1C9092009CCDAF /* HYNavigationController.swift */; };
-		39BC9CCD1F1897F6001DECD0 /* HYWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC9CCC1F1897F6001DECD0 /* HYWaterfallLayout.swift */; };
-		39D85AF71F0227B800F89C19 /* HYPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D85AF61F0227B800F89C19 /* HYPageView.swift */; };
-		39D85AF91F0227C700F89C19 /* HYTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D85AF81F0227C700F89C19 /* HYTitleView.swift */; };
-		39D85AFB1F0227D500F89C19 /* HYContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D85AFA1F0227D500F89C19 /* HYContentView.swift */; };
-		39D85AFD1F0227F000F89C19 /* HYPageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D85AFC1F0227F000F89C19 /* HYPageStyle.swift */; };
-		39D85AFF1F023B1F00F89C19 /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D85AFE1F023B1F00F89C19 /* UIColor-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		39307F5D1F1759BC00D4F243 /* WaterFallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterFallViewController.swift; sourceTree = "<group>"; };
+		39254F741F1DF1BC00BBE6F0 /* types.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = types.plist; sourceTree = "<group>"; };
+		39254F781F1DF23700BBE6F0 /* UIColor-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
+		39254F7C1F1DF38300BBE6F0 /* HYContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYContentView.swift; sourceTree = "<group>"; };
+		39254F7D1F1DF38300BBE6F0 /* HYPageStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYPageStyle.swift; sourceTree = "<group>"; };
+		39254F7E1F1DF38300BBE6F0 /* HYPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYPageView.swift; sourceTree = "<group>"; };
+		39254F7F1F1DF38300BBE6F0 /* HYTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYTitleView.swift; sourceTree = "<group>"; };
+		39254F881F1DF3F000BBE6F0 /* HYNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYNavigationController.swift; sourceTree = "<group>"; };
+		39254F8A1F1DF3FC00BBE6F0 /* WaterFallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterFallViewController.swift; sourceTree = "<group>"; };
+		39254F8C1F1DF40700BBE6F0 /* HYWaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYWaterfallLayout.swift; sourceTree = "<group>"; };
 		398CB9FB1F01055F0064B37E /* HYLive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HYLive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		398CB9FE1F0105600064B37E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		398CBA001F0105600064B37E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,13 +41,6 @@
 		398CBA051F0105600064B37E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		398CBA081F0105600064B37E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		398CBA0A1F0105600064B37E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		39B618331F1C9092009CCDAF /* HYNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYNavigationController.swift; sourceTree = "<group>"; };
-		39BC9CCC1F1897F6001DECD0 /* HYWaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYWaterfallLayout.swift; sourceTree = "<group>"; };
-		39D85AF61F0227B800F89C19 /* HYPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYPageView.swift; sourceTree = "<group>"; };
-		39D85AF81F0227C700F89C19 /* HYTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYTitleView.swift; sourceTree = "<group>"; };
-		39D85AFA1F0227D500F89C19 /* HYContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYContentView.swift; sourceTree = "<group>"; };
-		39D85AFC1F0227F000F89C19 /* HYPageStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYPageStyle.swift; sourceTree = "<group>"; };
-		39D85AFE1F023B1F00F89C19 /* UIColor-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
 		64E952CDC2B40DFDAEC06F95 /* Pods-HYLive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYLive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HYLive/Pods-HYLive.debug.xcconfig"; sourceTree = "<group>"; };
 		D72BDD81B0A7C15DBD5ADD00 /* Pods-HYLive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYLive.release.xcconfig"; path = "Pods/Target Support Files/Pods-HYLive/Pods-HYLive.release.xcconfig"; sourceTree = "<group>"; };
 		E66C073FE58BFBF3B079241B /* Pods_HYLive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HYLive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +58,85 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39254F731F1DF1BC00BBE6F0 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				39254F741F1DF1BC00BBE6F0 /* types.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		39254F761F1DF1DC00BBE6F0 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				39254F841F1DF3E600BBE6F0 /* Main */,
+				39254F7A1F1DF38300BBE6F0 /* CommonComponents */,
+				39254F771F1DF1FF00BBE6F0 /* Tools */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		39254F771F1DF1FF00BBE6F0 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				39254F8C1F1DF40700BBE6F0 /* HYWaterfallLayout.swift */,
+				39254F781F1DF23700BBE6F0 /* UIColor-Extension.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		39254F7A1F1DF38300BBE6F0 /* CommonComponents */ = {
+			isa = PBXGroup;
+			children = (
+				39254F7B1F1DF38300BBE6F0 /* HYPageView */,
+			);
+			path = CommonComponents;
+			sourceTree = "<group>";
+		};
+		39254F7B1F1DF38300BBE6F0 /* HYPageView */ = {
+			isa = PBXGroup;
+			children = (
+				39254F7C1F1DF38300BBE6F0 /* HYContentView.swift */,
+				39254F7D1F1DF38300BBE6F0 /* HYPageStyle.swift */,
+				39254F7E1F1DF38300BBE6F0 /* HYPageView.swift */,
+				39254F7F1F1DF38300BBE6F0 /* HYTitleView.swift */,
+			);
+			path = HYPageView;
+			sourceTree = "<group>";
+		};
+		39254F841F1DF3E600BBE6F0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				39254F851F1DF3E600BBE6F0 /* Controller */,
+				39254F861F1DF3E600BBE6F0 /* Model */,
+				39254F871F1DF3E600BBE6F0 /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		39254F851F1DF3E600BBE6F0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				39254F8A1F1DF3FC00BBE6F0 /* WaterFallViewController.swift */,
+				39254F881F1DF3F000BBE6F0 /* HYNavigationController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		39254F861F1DF3E600BBE6F0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		39254F871F1DF3E600BBE6F0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		398CB9F21F01055F0064B37E = {
 			isa = PBXGroup;
 			children = (
@@ -77,30 +158,16 @@
 		398CB9FD1F01055F0064B37E /* HYLive */ = {
 			isa = PBXGroup;
 			children = (
-				39D85AF51F0227A400F89C19 /* HYPageView */,
+				39254F761F1DF1DC00BBE6F0 /* Classes */,
+				39254F731F1DF1BC00BBE6F0 /* Resource */,
 				398CB9FE1F0105600064B37E /* AppDelegate.swift */,
 				398CBA001F0105600064B37E /* ViewController.swift */,
-				39307F5D1F1759BC00D4F243 /* WaterFallViewController.swift */,
-				39BC9CCC1F1897F6001DECD0 /* HYWaterfallLayout.swift */,
-				39B618331F1C9092009CCDAF /* HYNavigationController.swift */,
-				39D85AFE1F023B1F00F89C19 /* UIColor-Extension.swift */,
 				398CBA021F0105600064B37E /* Main.storyboard */,
 				398CBA051F0105600064B37E /* Assets.xcassets */,
 				398CBA071F0105600064B37E /* LaunchScreen.storyboard */,
 				398CBA0A1F0105600064B37E /* Info.plist */,
 			);
 			path = HYLive;
-			sourceTree = "<group>";
-		};
-		39D85AF51F0227A400F89C19 /* HYPageView */ = {
-			isa = PBXGroup;
-			children = (
-				39D85AF61F0227B800F89C19 /* HYPageView.swift */,
-				39D85AF81F0227C700F89C19 /* HYTitleView.swift */,
-				39D85AFA1F0227D500F89C19 /* HYContentView.swift */,
-				39D85AFC1F0227F000F89C19 /* HYPageStyle.swift */,
-			);
-			path = HYPageView;
 			sourceTree = "<group>";
 		};
 		5B96A9C9406A80E0666418C1 /* Pods */ = {
@@ -185,6 +252,7 @@
 			files = (
 				398CBA091F0105600064B37E /* LaunchScreen.storyboard in Resources */,
 				398CBA061F0105600064B37E /* Assets.xcassets in Resources */,
+				39254F751F1DF1BC00BBE6F0 /* types.plist in Resources */,
 				398CBA041F0105600064B37E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,16 +312,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39B618341F1C9092009CCDAF /* HYNavigationController.swift in Sources */,
+				39254F791F1DF23700BBE6F0 /* UIColor-Extension.swift in Sources */,
+				39254F801F1DF38300BBE6F0 /* HYContentView.swift in Sources */,
+				39254F811F1DF38300BBE6F0 /* HYPageStyle.swift in Sources */,
+				39254F8B1F1DF3FC00BBE6F0 /* WaterFallViewController.swift in Sources */,
 				398CBA011F0105600064B37E /* ViewController.swift in Sources */,
-				39307F5E1F1759BC00D4F243 /* WaterFallViewController.swift in Sources */,
-				39BC9CCD1F1897F6001DECD0 /* HYWaterfallLayout.swift in Sources */,
-				39D85AFD1F0227F000F89C19 /* HYPageStyle.swift in Sources */,
-				39D85AF71F0227B800F89C19 /* HYPageView.swift in Sources */,
-				39D85AF91F0227C700F89C19 /* HYTitleView.swift in Sources */,
+				39254F891F1DF3F000BBE6F0 /* HYNavigationController.swift in Sources */,
+				39254F821F1DF38300BBE6F0 /* HYPageView.swift in Sources */,
+				39254F831F1DF38300BBE6F0 /* HYTitleView.swift in Sources */,
 				398CB9FF1F0105600064B37E /* AppDelegate.swift in Sources */,
-				39D85AFF1F023B1F00F89C19 /* UIColor-Extension.swift in Sources */,
-				39D85AFB1F0227D500F89C19 /* HYContentView.swift in Sources */,
+				39254F8D1F1DF40700BBE6F0 /* HYWaterfallLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
