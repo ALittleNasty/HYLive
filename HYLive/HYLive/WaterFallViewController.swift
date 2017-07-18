@@ -10,7 +10,7 @@ import UIKit
 
 private let kCellID = "kCellIdentifier"
 
-class WaterFallViewController: UIViewController , UICollectionViewDataSource, HYWaterfallLayoutDataSource{
+class WaterFallViewController: UIViewController , UICollectionViewDataSource, UICollectionViewDelegate, HYWaterfallLayoutDataSource{
 
     fileprivate lazy var collectionView: UICollectionView = {
     
@@ -21,6 +21,7 @@ class WaterFallViewController: UIViewController , UICollectionViewDataSource, HY
         layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
         let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.backgroundColor = UIColor.white
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kCellID)
         return collectionView
@@ -49,10 +50,16 @@ class WaterFallViewController: UIViewController , UICollectionViewDataSource, HY
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCellID, for: indexPath)
-        
-        cell.backgroundColor = UIColor.randomColor() 
-        
+        cell.backgroundColor = UIColor.randomColor()
         return cell
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.height {
+            itemCount += 30
+            collectionView.reloadData()
+        }
     }
     
     func waterfallLayout(_ layout: HYWaterfallLayout, atItemIndex: Int) -> CGFloat {
