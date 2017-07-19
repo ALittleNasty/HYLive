@@ -35,4 +35,6 @@ class HYPageStyle {
     var coverViewCornerRadius: CGFloat = 4 // 遮罩的圆角
     var coverViewMargin: CGFloat = 8 // 遮罩左右距离titleLabel的间距
     
+    var pageControlHeight: CGFloat = 20 // pageControl的高度
+    
 }

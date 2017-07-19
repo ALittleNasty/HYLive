@@ -15,17 +15,34 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         automaticallyAdjustsScrollViewInsets = false 
                 
+//        let frame = CGRect(x: 0, y: 64, width: view.bounds.width, height: 180)
+//        let style = HYPageStyle()
+//        style.isTitleViewScrollEnable = false
+//        style.isShowBottomLine = true
+//        
+//        let titles = ["热门", "豪华", "专属", "高级"]
+//        let pageCollectionView = HYPageCollectionView(frame: frame, titles: titles, style: style, isTitleOnTop: true)
+//        view.addSubview(pageCollectionView)
+        
+        setupPageView()
+        
+        setupNavagationBar()
+    }
+    
+    private func setupPageView() {
+    
         // 创建pageView
         // 1.获取frame
         let frame = CGRect(x: 0, y: 64, width: view.bounds.width, height: view.bounds.height - 64)
         
         // 2.标题
-        let titles: [String] = ["推荐", "王者农药", "娱乐", "使命召唤", "游戏", "英雄联盟", "星际争霸", "手游", "穿越火线", "生化危机"]
+        let titles: [String] =  ["推荐", "王者农药", "娱乐", "使命召唤"]
+            //["推荐", "王者农药", "娱乐", "使命召唤", "游戏", "英雄联盟", "星际争霸", "手游", "穿越火线", "生化危机"]
         
         // 3.显示的风格
         let style = HYPageStyle()
-        style.isTitleViewScrollEnable = true
-        style.isNeedTitleScale = true
+        style.isTitleViewScrollEnable = false
+        style.isNeedTitleScale = false
         style.isShowBottomLine = true
         
         // 4.获取pageview中所有的内容控制器
@@ -40,10 +57,7 @@ class ViewController: UIViewController {
         
         let pageView = HYPageView(frame: frame, titles: titles, style: style, childVCs: childVCs, parentVC: self)
         view.addSubview(pageView)
-        
-        setupNavagationBar()
     }
-    
     
     private func setupNavagationBar() {
     

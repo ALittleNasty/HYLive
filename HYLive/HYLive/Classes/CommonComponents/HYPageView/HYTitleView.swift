@@ -201,7 +201,8 @@ extension HYTitleView {
         
         let sourceLabel = titleLabels[selectedIndex];
         // 1.将原来的label字体改为normalColor, 选中的label字体颜色换为selectedColor
-        adjustTitleLabelPosition(targetIndex: targetLabel.tag)
+        sourceLabel.textColor = style.titleNormalColor
+        targetLabel.textColor = style.titleSelectedColor
         // 2.改变选中label的索引
         selectedIndex = targetLabel.tag
         
