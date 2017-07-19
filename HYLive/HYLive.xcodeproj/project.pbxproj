@@ -25,6 +25,7 @@
 		398CBA041F0105600064B37E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398CBA021F0105600064B37E /* Main.storyboard */; };
 		398CBA061F0105600064B37E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 398CBA051F0105600064B37E /* Assets.xcassets */; };
 		398CBA091F0105600064B37E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398CBA071F0105600064B37E /* LaunchScreen.storyboard */; };
+		399BF4B41F1F47C200A0BF07 /* HYPageCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399BF4B31F1F47C200A0BF07 /* HYPageCollectionViewLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		398CBA051F0105600064B37E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		398CBA081F0105600064B37E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		398CBA0A1F0105600064B37E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		399BF4B31F1F47C200A0BF07 /* HYPageCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYPageCollectionViewLayout.swift; sourceTree = "<group>"; };
 		64E952CDC2B40DFDAEC06F95 /* Pods-HYLive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYLive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HYLive/Pods-HYLive.debug.xcconfig"; sourceTree = "<group>"; };
 		D72BDD81B0A7C15DBD5ADD00 /* Pods-HYLive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYLive.release.xcconfig"; path = "Pods/Target Support Files/Pods-HYLive/Pods-HYLive.release.xcconfig"; sourceTree = "<group>"; };
 		E66C073FE58BFBF3B079241B /* Pods_HYLive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HYLive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				39254F8C1F1DF40700BBE6F0 /* HYWaterfallLayout.swift */,
+				399BF4B31F1F47C200A0BF07 /* HYPageCollectionViewLayout.swift */,
 				39254F781F1DF23700BBE6F0 /* UIColor-Extension.swift */,
 				39254F8E1F1DF4E200BBE6F0 /* NetworkTools.swift */,
 				39254F901F1DFAC000BBE6F0 /* KingfisherExtension.swift */,
@@ -325,6 +328,7 @@
 				39254F8F1F1DF4E200BBE6F0 /* NetworkTools.swift in Sources */,
 				39254F801F1DF38300BBE6F0 /* HYContentView.swift in Sources */,
 				39254F931F1E03D300BBE6F0 /* HYPageCollectionView.swift in Sources */,
+				399BF4B41F1F47C200A0BF07 /* HYPageCollectionViewLayout.swift in Sources */,
 				39254F911F1DFAC000BBE6F0 /* KingfisherExtension.swift in Sources */,
 				39254F811F1DF38300BBE6F0 /* HYPageStyle.swift in Sources */,
 				39254F8B1F1DF3FC00BBE6F0 /* WaterFallViewController.swift in Sources */,

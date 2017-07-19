@@ -15,16 +15,16 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         automaticallyAdjustsScrollViewInsets = false 
                 
-//        let frame = CGRect(x: 0, y: 64, width: view.bounds.width, height: 180)
-//        let style = HYPageStyle()
-//        style.isTitleViewScrollEnable = false
-//        style.isShowBottomLine = true
-//        
-//        let titles = ["热门", "豪华", "专属", "高级"]
-//        let pageCollectionView = HYPageCollectionView(frame: frame, titles: titles, style: style, isTitleOnTop: true)
-//        view.addSubview(pageCollectionView)
+        let frame = CGRect(x: 0, y: 64, width: view.bounds.width, height: 180)
+        let style = HYPageStyle()
+        style.isTitleViewScrollEnable = false
+        style.isShowBottomLine = true
         
-        setupPageView()
+        let titles = ["热门", "豪华", "专属", "高级"]
+        let pageCollectionView = HYPageCollectionView(frame: frame, titles: titles, style: style, isTitleOnTop: true)
+        view.addSubview(pageCollectionView)
+        
+//        setupPageView()
         
         setupNavagationBar()
     }

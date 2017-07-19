@@ -5,7 +5,7 @@
 //  Created by ALittleNasty on 2017/7/18.
 //  Copyright © 2017年 ALittleNasty. All rights reserved.
 //
-
+ 
 import UIKit
 
 private let kCollectionViewCellID = "kCollectionViewCellID"
@@ -44,16 +44,18 @@ extension HYPageCollectionView {
         // 2. collectionView
         let collectionY = isTitleOnTop ? style.titleHeight : 0
         let collectionFrame = CGRect(x: 0, y: collectionY, width: bounds.width, height: bounds.height - style.titleHeight - style.pageControlHeight)
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = 0
-        layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: bounds.width * 0.25, height: collectionFrame.height * 0.5)
+        let layout = HYPageCollectionViewLayout()
+        layout.linePading = 10
+        layout.itemPading = 5
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout.column = 4
+        layout.row = 2
         let collectionView = UICollectionView(frame: collectionFrame, collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = UIColor.randomColor()
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.isPagingEnabled = true
         collectionView.bounces = false
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kCollectionViewCellID)
