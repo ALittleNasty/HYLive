@@ -17,7 +17,7 @@ class HYPageCollectionViewLayout: UICollectionViewLayout {
     public var row: Int = 2    // 行数
     
     fileprivate lazy var attributes: [UICollectionViewLayoutAttributes] =  [UICollectionViewLayoutAttributes]()
-    
+    fileprivate lazy var totalWidth: CGFloat = 0
 }
 
 extension HYPageCollectionViewLayout {
@@ -35,39 +35,38 @@ extension HYPageCollectionViewLayout {
         
         // 2.0
         let width: CGFloat = (collectionView.bounds.width - sectionInset.left - sectionInset.right - (CGFloat(column - 1) * itemPading)) / CGFloat(column)
-        let height: CGFloat = (collectionView.bounds.height - sectionInset.top - sectionInset.bottom - (CGFloat(row - 1) * itemPading)) / CGFloat(row)
-        var currentRow: Int = 0
+        let height: CGFloat = (collectionView.bounds.height - sectionInset.top - sectionInset.bottom - (CGFloat(row - 1) * linePading)) / CGFloat(row)
+        var previousNumberOfPage = 0
         
-        for section in 0..<sections {
+        for s in 0..<sections {
             
             // 2. 获取每一组有多少item
-            let items = collectionView.numberOfItems(inSection: section)
-            for item in 0..<items {
+            let items = collectionView.numberOfItems(inSection: s)
+            for i in 0..<items {
             
                 // 3.创建indexPath
-                let indexPath = IndexPath(item: item, section: section)
+                let indexPath = IndexPath(item: i, section: s)
                 // 4.创建attribute
                 let attribute = UICollectionViewLayoutAttributes(forCellWith: indexPath)
                 
                 // 5.计算frame
-                var x: CGFloat = sectionInset.left + CGFloat(item % column) * (width + itemPading)
-                
-                if x + width > collectionView.bounds.width - sectionInset.right {
-                    x = sectionInset.left
-                    currentRow += 1
-                }
-                
-                x = x + collectionView.bounds.width * CGFloat(section)
-                let y: CGFloat = sectionInset.top + CGFloat(item / column) * (height + linePading)
-                
+                let currentPage = i / (column * row)
+                let currentIndex = i % (column * row)
+                let x: CGFloat = sectionInset.left + (width + itemPading) * CGFloat(currentIndex % column) + collectionView.bounds.width * CGFloat(previousNumberOfPage + currentPage)
+                let y: CGFloat = sectionInset.top + CGFloat(currentIndex / column) * (height + linePading)
                 
                 attribute.frame = CGRect(x: x, y: y, width: width, height: height)
                 
                 // 6.保存attribute
                 attributes.append(attribute)
             }
+            
+            // 7. 计算完一组, 更新页数的值
+            previousNumberOfPage += (items - 1) / (column * row) + 1
         }
         
+        // 8. 计算总宽度
+        totalWidth = CGFloat(previousNumberOfPage) * collectionView.bounds.width
     }
 }
 
@@ -82,10 +81,6 @@ extension HYPageCollectionViewLayout {
 
     override var collectionViewContentSize: CGSize {
         
-        guard let collectionView = collectionView else {
-            fatalError("This layout must has a UICollectionView")
-        }
-        
-        return CGSize(width: CGFloat(column) * collectionView.bounds.width, height: collectionView.bounds.height)
+        return CGSize(width: totalWidth, height: 0)
     }
 }

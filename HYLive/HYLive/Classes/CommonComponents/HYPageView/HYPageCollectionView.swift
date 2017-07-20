@@ -53,7 +53,7 @@ extension HYPageCollectionView {
         let collectionView = UICollectionView(frame: collectionFrame, collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.backgroundColor = UIColor.randomColor()
+        collectionView.backgroundColor = UIColor.white
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.isPagingEnabled = true
@@ -79,13 +79,14 @@ extension HYPageCollectionView : UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        let couns = [12, 20, 3, 6]
+        return couns[section]
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCollectionViewCellID, for: indexPath)
         
-        cell.backgroundColor = UIColor.randomColor()
+        cell.backgroundColor = UIColor.red 
         
         return cell
     }
@@ -94,7 +95,7 @@ extension HYPageCollectionView : UICollectionViewDataSource {
 extension HYPageCollectionView: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item)
+        print("\(indexPath.section) ---- \(indexPath.item)")
     }
 }
 
