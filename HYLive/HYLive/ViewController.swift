@@ -8,6 +8,8 @@
 
 import UIKit
 
+private let kCollectionViewCellID = "kCollectionViewCellID"
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -20,8 +22,17 @@ class ViewController: UIViewController {
         style.isTitleViewScrollEnable = false
         style.isShowBottomLine = true
         
+        let layout = HYPageCollectionViewLayout()
+        layout.linePading = 10
+        layout.itemPading = 5
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout.column = 4
+        layout.row = 2
+        
         let titles = ["热门", "豪华", "专属", "高级"]
-        let pageCollectionView = HYPageCollectionView(frame: frame, titles: titles, style: style, isTitleOnTop: true)
+        let pageCollectionView = HYPageCollectionView(frame: frame, titles: titles, style: style, layout: layout)
+        pageCollectionView.dataSource = self
+        pageCollectionView.registerCell(UICollectionViewCell.self, forCellWithReuseIdentifier: kCollectionViewCellID)
         view.addSubview(pageCollectionView)
         
 //        setupPageView()
@@ -71,6 +82,27 @@ class ViewController: UIViewController {
     }
     
 }
+
+extension ViewController: HYPageCollectionViewDataSource {
+
+    func pageCollectionView(_ pageCollectionView: HYPageCollectionView, numberOfItemsInSection section: Int) -> Int {
+        let couns = [12, 20, 3, 6]
+        return couns[section]
+    }
+    
+    func numberOfSectionInPageCollectionView(_ pageCollectionView: HYPageCollectionView) -> Int {
+        return 4
+    }
+    
+    func pageCollectionView(_ pageCollectionView: HYPageCollectionView, _ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCollectionViewCellID, for: indexPath)
+        cell.backgroundColor = UIColor.randomColor()
+        return cell
+    }
+}
+
+
 
 /*
  func guardAndIfLetUsage() {

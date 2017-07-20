@@ -10,16 +10,31 @@ import UIKit
 
 private let kCollectionViewCellID = "kCollectionViewCellID"
 
+protocol HYPageCollectionViewDataSource: class {
+    
+    // 总共多少组cell
+    func numberOfSectionInPageCollectionView(_ pageCollectionView: HYPageCollectionView) -> Int
+    
+    // 每一组有多少个cell
+    func pageCollectionView(_ pageCollectionView: HYPageCollectionView, numberOfItemsInSection section: Int) -> Int
+    
+    // 每个cell是什么
+    func pageCollectionView(_ pageCollectionView: HYPageCollectionView, _ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+}
+
 class HYPageCollectionView: UIView {
 
+    weak var dataSource : HYPageCollectionViewDataSource?
+    
+    fileprivate var layout: HYPageCollectionViewLayout
     fileprivate var titles : [String]
-    fileprivate var isTitleOnTop: Bool
-    fileprivate var style: HYPageStyle
-
-    init(frame: CGRect, titles: [String], style: HYPageStyle, isTitleOnTop: Bool) {
+    fileprivate var style : HYPageStyle
+    fileprivate var collectionView: UICollectionView!
+    
+    init(frame: CGRect, titles: [String], style: HYPageStyle, layout: HYPageCollectionViewLayout) {
         self.titles = titles
-        self.isTitleOnTop = isTitleOnTop
         self.style = style
+        self.layout = layout
         super.init(frame: frame)
         setupUI()
     }
@@ -35,21 +50,16 @@ extension HYPageCollectionView {
     fileprivate func setupUI() {
     
         // 1. titleView
-        let titleViewY = isTitleOnTop ? 0 : bounds.height - style.titleHeight
+        let titleViewY = style.isTitleOnTop ? 0 : bounds.height - style.titleHeight
         let titleViewFrame = CGRect(x: 0, y: titleViewY, width: bounds.width, height: style.titleHeight)
         let titleView = HYTitleView(frame: titleViewFrame, titles: titles, style: style)
         titleView.backgroundColor = UIColor.randomColor()
         addSubview(titleView)
         
         // 2. collectionView
-        let collectionY = isTitleOnTop ? style.titleHeight : 0
+        let collectionY = style.isTitleOnTop ? style.titleHeight : 0
         let collectionFrame = CGRect(x: 0, y: collectionY, width: bounds.width, height: bounds.height - style.titleHeight - style.pageControlHeight)
-        let layout = HYPageCollectionViewLayout()
-        layout.linePading = 10
-        layout.itemPading = 5
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        layout.column = 4
-        layout.row = 2
+        
         let collectionView = UICollectionView(frame: collectionFrame, collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -60,6 +70,7 @@ extension HYPageCollectionView {
         collectionView.bounces = false
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kCollectionViewCellID)
         addSubview(collectionView)
+        self.collectionView = collectionView
         
         // 3. pageControl
         let pageFrame = CGRect(x: 0, y: collectionFrame.maxY, width: bounds.width, height: style.pageControlHeight)
@@ -68,27 +79,37 @@ extension HYPageCollectionView {
         pageControl.backgroundColor = UIColor.randomColor()
         addSubview(pageControl)
     }
+}
+
+extension HYPageCollectionView {
+
+    public func registerCell(_ cellClass: Swift.AnyClass?, forCellWithReuseIdentifier identifier: String) {
+        collectionView.register(cellClass, forCellWithReuseIdentifier: identifier)
+    }
     
+    public func registerNib(_ nib: UINib?, forCellWithReuseIdentifier identifier: String) {
+        collectionView.register(nib, forCellWithReuseIdentifier: identifier)
+    }
     
+    public func reloadData() {
+        collectionView.reloadData()
+    }
 }
 
 extension HYPageCollectionView : UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 4
+        return dataSource?.numberOfSectionInPageCollectionView(self) ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let couns = [12, 20, 3, 6]
-        return couns[section]
+
+        return dataSource?.pageCollectionView(self, numberOfItemsInSection: section) ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCollectionViewCellID, for: indexPath)
-        
-        cell.backgroundColor = UIColor.red 
-        
-        return cell
+        // 直接强制解包, 假如dataSource == nil, 那么上面两个方法返回均为0, 也就不会调用此方法, 索引此处强制解包是安全的
+        return dataSource!.pageCollectionView(self, collectionView, cellForItemAt: indexPath)
     }
 }
 

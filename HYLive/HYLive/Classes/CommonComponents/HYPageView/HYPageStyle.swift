@@ -36,5 +36,6 @@ class HYPageStyle {
     var coverViewMargin: CGFloat = 8 // 遮罩左右距离titleLabel的间距
     
     var pageControlHeight: CGFloat = 20 // pageControl的高度
+    var isTitleOnTop: Bool = true // 标题是否在顶部(默认是在顶部)
     
 }
