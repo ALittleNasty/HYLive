@@ -185,6 +185,16 @@ extension HYTitleView {
     }
 }
 
+// MARK: - 设置标题Label
+extension HYTitleView {
+
+    public func setCurrent(_ index: Int) {
+    
+        let targetLabel = titleLabels[index]
+        adjustTitleLabels(targetLabel)
+    }
+}
+
 // MARK: - 点击事件处理
 extension HYTitleView {
     
@@ -199,6 +209,16 @@ extension HYTitleView {
             return
         }
         
+        // 1. 调整titleLabel
+        adjustTitleLabels(targetLabel)
+        
+        // 2.通知代理, 与contentView进行联动
+        // ?. 可选链:  若可选类型有值将会执行代码, 否则什么也不干
+        delegate?.titleView(self, targetIndex: selectedIndex)
+    }
+    
+    fileprivate func adjustTitleLabels(_ targetLabel: UILabel) {
+    
         let sourceLabel = titleLabels[selectedIndex];
         // 1.将原来的label字体改为normalColor, 选中的label字体颜色换为selectedColor
         sourceLabel.textColor = style.titleNormalColor
@@ -238,15 +258,11 @@ extension HYTitleView {
                 coverW = targetLabel.frame.width
             }
             
-            UIView.animate(withDuration: 0.25, animations: { 
+            UIView.animate(withDuration: 0.25, animations: {
                 self.coverView.frame.origin.x = coverX
                 self.coverView.frame.size.width = coverW
             })
         }
-        
-        // 6.通知代理, 与contentView进行联动
-        // ?. 可选链:  若可选类型有值将会执行代码, 否则什么也不干
-        delegate?.titleView(self, targetIndex: selectedIndex)
     }
     
     fileprivate func adjustTitleLabelPosition(targetIndex: Int) {
@@ -325,7 +341,6 @@ extension HYTitleView: HYContentViewDelegate {
         }
     }
 }
-
 
 
 

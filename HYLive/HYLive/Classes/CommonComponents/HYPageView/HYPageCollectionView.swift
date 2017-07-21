@@ -22,14 +22,24 @@ protocol HYPageCollectionViewDataSource: class {
     func pageCollectionView(_ pageCollectionView: HYPageCollectionView, _ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
 }
 
+
 class HYPageCollectionView: UIView {
 
-    weak var dataSource : HYPageCollectionViewDataSource?
+    weak var dataSource : HYPageCollectionViewDataSource? {
+        didSet {
+            let firstSectionItemCount = dataSource?.pageCollectionView(self, numberOfItemsInSection: 0) ?? 0
+//            pageControl.numberOfPages = (firstSectionItemCount - 1) / (layout.column * layout.row) + 1
+            pageControl.numberOfPages = calculatePage(firstSectionItemCount, fullPageCount: layout.column * layout.row)
+        }
+    }
     
     fileprivate var layout: HYPageCollectionViewLayout
     fileprivate var titles : [String]
     fileprivate var style : HYPageStyle
     fileprivate var collectionView: UICollectionView!
+    fileprivate var pageControl: UIPageControl!
+    fileprivate var titleView: HYTitleView!
+    fileprivate lazy var currentIndexPath : IndexPath = IndexPath(item: 0, section: 0)
     
     init(frame: CGRect, titles: [String], style: HYPageStyle, layout: HYPageCollectionViewLayout) {
         self.titles = titles
@@ -42,6 +52,7 @@ class HYPageCollectionView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 }
 
 
@@ -56,6 +67,7 @@ extension HYPageCollectionView {
         titleView.backgroundColor = UIColor.randomColor()
         titleView.delegate = self
         addSubview(titleView)
+        self.titleView = titleView
         
         // 2. collectionView
         let collectionY = style.isTitleOnTop ? style.titleHeight : 0
@@ -76,12 +88,25 @@ extension HYPageCollectionView {
         // 3. pageControl
         let pageFrame = CGRect(x: 0, y: collectionFrame.maxY, width: bounds.width, height: style.pageControlHeight)
         let pageControl = UIPageControl(frame: pageFrame)
-        pageControl.numberOfPages = 3
+        pageControl.numberOfPages = 1
         pageControl.backgroundColor = UIColor.randomColor()
+        pageControl.hidesForSinglePage = false
         addSubview(pageControl)
+        self.pageControl = pageControl
+    }
+    
+    
+    fileprivate func calculatePage(_ itemCount: Int, fullPageCount: Int) -> Int {
+        
+        if (itemCount % fullPageCount) == 0 {
+            return (itemCount / fullPageCount == 0) ? 1 : itemCount / fullPageCount
+        } else {
+            return (itemCount / fullPageCount == 0) ? 1 : itemCount / fullPageCount + 1
+        }
     }
 }
 
+// MARK: - 暴露给外面的方法 (注册cell, 刷新数据)
 extension HYPageCollectionView {
 
     public func registerCell(_ cellClass: Swift.AnyClass?, forCellWithReuseIdentifier identifier: String) {
@@ -97,6 +122,7 @@ extension HYPageCollectionView {
     }
 }
 
+// MARK: - UICollectionViewDataSource
 extension HYPageCollectionView : UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -114,23 +140,67 @@ extension HYPageCollectionView : UICollectionViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegate
 extension HYPageCollectionView: UICollectionViewDelegate {
 
+    // 停止减速
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        scrollViewEndScroll()
+    }
+    
+    // 停止拖拽
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        // 没有减速, 完全是手指拖拽停止的
+        if !decelerate {
+            scrollViewEndScroll()
+        }
+    }
+    
+    private func scrollViewEndScroll() {
+    
+        // 1. 获取滚动位置对应的indexPath
+        let point = CGPoint(x: layout.sectionInset.left + 1 + collectionView.contentOffset.x, y: layout.sectionInset.top + 1)
+        
+        guard let indexPath = collectionView.indexPathForItem(at: point) else { return }
+        
+        
+        let itemCount = dataSource?.pageCollectionView(self, numberOfItemsInSection: indexPath.section) ?? 0
+        // 2. 判断是否需要改变组
+        if indexPath.section != currentIndexPath.section {  // 组改变
+            
+            // 2.1 改变pageControl
+            pageControl.numberOfPages = calculatePage(itemCount, fullPageCount: layout.row * layout.column)
+            pageControl.currentPage = indexPath.item / (layout.row * layout.column)
+            
+            // 2.2 记录最新的IndexPath
+            currentIndexPath = indexPath
+            
+            // 2.3 改变titleView
+            titleView.setCurrent(indexPath.section)
+        } else {                                            // 组没有改变
+            // 2.1 改变pageControl
+//            pageControl.numberOfPages = calculatePage(itemCount, fullPageCount: layout.row * layout.column)
+            pageControl.currentPage = indexPath.item / (layout.row * layout.column)
+            
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("\(indexPath.section) ---- \(indexPath.item)")
     }
 }
 
+// MARK: - HYTitleViewDelegate (title点击事件代理)
 extension HYPageCollectionView : HYTitleViewDelegate {
     
     func titleView(_ titleView: HYTitleView, targetIndex: Int) {
-        // 获取索引
+        // 1.获取索引
         let indexPath = IndexPath(item: 0, section: targetIndex)
         
-        // 滚动到指定的索引位置
+        // 2.滚动到指定的索引位置
         collectionView.scrollToItem(at: indexPath, at: .left, animated: false)
         
-        // 调整滚动位置
+        // 3.调整滚动位置
         let lastPageItemCount = dataSource?.pageCollectionView(self, numberOfItemsInSection: targetIndex) ?? 0
         let fullPageItemCount = layout.column * layout.row
         let isLastPageOnlyOneScreen = lastPageItemCount <= fullPageItemCount ? true : false
@@ -139,8 +209,16 @@ extension HYPageCollectionView : HYTitleViewDelegate {
             // 最后一组只显示1页的时候不做偏移
             return
         }
-        
         collectionView.contentOffset.x -= layout.sectionInset.left
+        
+        // 4.修改pageControl的小圆点个数
+        let sectionItemCount = dataSource?.pageCollectionView(self, numberOfItemsInSection: targetIndex) ?? 0
+//        pageControl.numberOfPages = (sectionItemCount - 1) / fullPageItemCount + 1
+        pageControl.numberOfPages = calculatePage(sectionItemCount, fullPageCount: fullPageItemCount)
+        pageControl.currentPage = 0
+        
+        // 5.记录当前IndexPath
+        currentIndexPath = indexPath
     }
 }
 
