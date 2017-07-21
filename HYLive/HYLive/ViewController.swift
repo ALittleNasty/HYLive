@@ -86,7 +86,7 @@ class ViewController: UIViewController {
 extension ViewController: HYPageCollectionViewDataSource {
 
     func pageCollectionView(_ pageCollectionView: HYPageCollectionView, numberOfItemsInSection section: Int) -> Int {
-        let couns = [12, 20, 3, 6]
+        let couns = [12, 20, 3, 17]
         return couns[section]
     }
     

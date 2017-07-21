@@ -126,7 +126,21 @@ extension HYPageCollectionView : HYTitleViewDelegate {
     func titleView(_ titleView: HYTitleView, targetIndex: Int) {
         // 获取索引
         let indexPath = IndexPath(item: 0, section: targetIndex)
+        
+        // 滚动到指定的索引位置
         collectionView.scrollToItem(at: indexPath, at: .left, animated: false)
+        
+        // 调整滚动位置
+        let lastPageItemCount = dataSource?.pageCollectionView(self, numberOfItemsInSection: targetIndex) ?? 0
+        let fullPageItemCount = layout.column * layout.row
+        let isLastPageOnlyOneScreen = lastPageItemCount <= fullPageItemCount ? true : false
+        
+        if (targetIndex == titles.count - 1) && isLastPageOnlyOneScreen {
+            // 最后一组只显示1页的时候不做偏移
+            return
+        }
+        
+        collectionView.contentOffset.x -= layout.sectionInset.left
     }
 }
 
