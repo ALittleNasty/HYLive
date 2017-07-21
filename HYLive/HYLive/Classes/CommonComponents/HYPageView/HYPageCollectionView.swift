@@ -54,6 +54,7 @@ extension HYPageCollectionView {
         let titleViewFrame = CGRect(x: 0, y: titleViewY, width: bounds.width, height: style.titleHeight)
         let titleView = HYTitleView(frame: titleViewFrame, titles: titles, style: style)
         titleView.backgroundColor = UIColor.randomColor()
+        titleView.delegate = self
         addSubview(titleView)
         
         // 2. collectionView
@@ -108,7 +109,7 @@ extension HYPageCollectionView : UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // 直接强制解包, 假如dataSource == nil, 那么上面两个方法返回均为0, 也就不会调用此方法, 索引此处强制解包是安全的
+        // 直接强制解包, 假如dataSource == nil, 那么上面两个方法返回均为0, 也就不会调用此方法, 故此处强制解包是安全的
         return dataSource!.pageCollectionView(self, collectionView, cellForItemAt: indexPath)
     }
 }
@@ -120,4 +121,12 @@ extension HYPageCollectionView: UICollectionViewDelegate {
     }
 }
 
+extension HYPageCollectionView : HYTitleViewDelegate {
+    
+    func titleView(_ titleView: HYTitleView, targetIndex: Int) {
+        // 获取索引
+        let indexPath = IndexPath(item: 0, section: targetIndex)
+        collectionView.scrollToItem(at: indexPath, at: .left, animated: false)
+    }
+}
 
