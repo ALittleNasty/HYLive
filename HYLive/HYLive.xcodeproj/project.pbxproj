@@ -26,6 +26,9 @@
 		398CBA061F0105600064B37E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 398CBA051F0105600064B37E /* Assets.xcassets */; };
 		398CBA091F0105600064B37E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398CBA071F0105600064B37E /* LaunchScreen.storyboard */; };
 		399BF4B41F1F47C200A0BF07 /* HYPageCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399BF4B31F1F47C200A0BF07 /* HYPageCollectionViewLayout.swift */; };
+		39E305B21F2F27D0002CBDE3 /* QHNormalEmotionSort.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39E305B01F2F27D0002CBDE3 /* QHNormalEmotionSort.plist */; };
+		39E305B31F2F27D0002CBDE3 /* QHSohuGifSort.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39E305B11F2F27D0002CBDE3 /* QHSohuGifSort.plist */; };
+		39E305B51F2F280A002CBDE3 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E305B41F2F280A002CBDE3 /* Const.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +52,9 @@
 		398CBA081F0105600064B37E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		398CBA0A1F0105600064B37E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		399BF4B31F1F47C200A0BF07 /* HYPageCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYPageCollectionViewLayout.swift; sourceTree = "<group>"; };
+		39E305B01F2F27D0002CBDE3 /* QHNormalEmotionSort.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = QHNormalEmotionSort.plist; sourceTree = "<group>"; };
+		39E305B11F2F27D0002CBDE3 /* QHSohuGifSort.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = QHSohuGifSort.plist; sourceTree = "<group>"; };
+		39E305B41F2F280A002CBDE3 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		64E952CDC2B40DFDAEC06F95 /* Pods-HYLive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYLive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HYLive/Pods-HYLive.debug.xcconfig"; sourceTree = "<group>"; };
 		D72BDD81B0A7C15DBD5ADD00 /* Pods-HYLive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYLive.release.xcconfig"; path = "Pods/Target Support Files/Pods-HYLive/Pods-HYLive.release.xcconfig"; sourceTree = "<group>"; };
 		E66C073FE58BFBF3B079241B /* Pods_HYLive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HYLive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +75,8 @@
 		39254F731F1DF1BC00BBE6F0 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				39E305B01F2F27D0002CBDE3 /* QHNormalEmotionSort.plist */,
+				39E305B11F2F27D0002CBDE3 /* QHSohuGifSort.plist */,
 				39254F741F1DF1BC00BBE6F0 /* types.plist */,
 			);
 			path = Resource;
@@ -92,6 +100,7 @@
 				39254F781F1DF23700BBE6F0 /* UIColor-Extension.swift */,
 				39254F8E1F1DF4E200BBE6F0 /* NetworkTools.swift */,
 				39254F901F1DFAC000BBE6F0 /* KingfisherExtension.swift */,
+				39E305B41F2F280A002CBDE3 /* Const.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -264,6 +273,8 @@
 			files = (
 				398CBA091F0105600064B37E /* LaunchScreen.storyboard in Resources */,
 				398CBA061F0105600064B37E /* Assets.xcassets in Resources */,
+				39E305B21F2F27D0002CBDE3 /* QHNormalEmotionSort.plist in Resources */,
+				39E305B31F2F27D0002CBDE3 /* QHSohuGifSort.plist in Resources */,
 				39254F751F1DF1BC00BBE6F0 /* types.plist in Resources */,
 				398CBA041F0105600064B37E /* Main.storyboard in Resources */,
 			);
@@ -338,6 +349,7 @@
 				39254F831F1DF38300BBE6F0 /* HYTitleView.swift in Sources */,
 				398CB9FF1F0105600064B37E /* AppDelegate.swift in Sources */,
 				39254F8D1F1DF40700BBE6F0 /* HYWaterfallLayout.swift in Sources */,
+				39E305B51F2F280A002CBDE3 /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
