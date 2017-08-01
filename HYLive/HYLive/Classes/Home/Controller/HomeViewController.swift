@@ -50,8 +50,33 @@ extension HomeViewController {
     
     fileprivate func setupContentView() {
         
+        let homeTypes = loadHomeTypeData()
+        
+        let style = HYPageStyle()
+        style.isTitleViewScrollEnable = true
+        
+        let height = kScreenHeight - kNavigationBarHeight - kStatusBarHeight - kTabBarHeight
+        let frame = CGRect(x: 0, y: kNavigationBarHeight + kStatusBarHeight, width: kScreenWidth, height: height)
+        
+        let titles = homeTypes.map({$0.title})
+        
     }
     
+    fileprivate func loadHomeTypeData() -> [HomeType] {
+    
+        let path = Bundle.main.path(forResource: "types", ofType: "plist")!
+        let rowData = NSArray(contentsOfFile: path) as! [[String : Any]]
+        var types = [HomeType]()
+        for dict in rowData {
+            types.append(HomeType(dict: dict))
+        }
+        return types
+    }
+}
+
+// MARK: - 事件处理
+extension HomeViewController {
+
     @objc fileprivate func collectItemAction() {
         print("点击了收藏按钮")
     }

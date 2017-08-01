@@ -32,6 +32,8 @@
 		398E50291F304FB3005A434D /* RankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398E50281F304FB3005A434D /* RankViewController.swift */; };
 		398E502B1F304FC2005A434D /* DiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398E502A1F304FC2005A434D /* DiscoveryViewController.swift */; };
 		398E502D1F304FD2005A434D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398E502C1F304FD2005A434D /* ProfileViewController.swift */; };
+		398E50311F3080B8005A434D /* HomeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398E50301F3080B8005A434D /* HomeType.swift */; };
+		398E50331F30811B005A434D /* AnchorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398E50321F30811B005A434D /* AnchorModel.swift */; };
 		399BF4B41F1F47C200A0BF07 /* HYPageCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399BF4B31F1F47C200A0BF07 /* HYPageCollectionViewLayout.swift */; };
 		39E305B21F2F27D0002CBDE3 /* QHNormalEmotionSort.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39E305B01F2F27D0002CBDE3 /* QHNormalEmotionSort.plist */; };
 		39E305B31F2F27D0002CBDE3 /* QHSohuGifSort.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39E305B11F2F27D0002CBDE3 /* QHSohuGifSort.plist */; };
@@ -65,6 +67,8 @@
 		398E50281F304FB3005A434D /* RankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankViewController.swift; sourceTree = "<group>"; };
 		398E502A1F304FC2005A434D /* DiscoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryViewController.swift; sourceTree = "<group>"; };
 		398E502C1F304FD2005A434D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		398E50301F3080B8005A434D /* HomeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeType.swift; sourceTree = "<group>"; };
+		398E50321F30811B005A434D /* AnchorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorModel.swift; sourceTree = "<group>"; };
 		399BF4B31F1F47C200A0BF07 /* HYPageCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYPageCollectionViewLayout.swift; sourceTree = "<group>"; };
 		39E305B01F2F27D0002CBDE3 /* QHNormalEmotionSort.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = QHNormalEmotionSort.plist; sourceTree = "<group>"; };
 		39E305B11F2F27D0002CBDE3 /* QHSohuGifSort.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = QHSohuGifSort.plist; sourceTree = "<group>"; };
@@ -274,6 +278,8 @@
 		398E50141F304F34005A434D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				398E50301F3080B8005A434D /* HomeType.swift */,
+				398E50321F30811B005A434D /* AnchorModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -564,6 +570,7 @@
 				399BF4B41F1F47C200A0BF07 /* HYPageCollectionViewLayout.swift in Sources */,
 				398E502D1F304FD2005A434D /* ProfileViewController.swift in Sources */,
 				39254F911F1DFAC000BBE6F0 /* KingfisherExtension.swift in Sources */,
+				398E50311F3080B8005A434D /* HomeType.swift in Sources */,
 				398E500D1F3011C0005A434D /* BaseModel.swift in Sources */,
 				39254F811F1DF38300BBE6F0 /* HYPageStyle.swift in Sources */,
 				398E500F1F30122A005A434D /* NSDate-Extension.swift in Sources */,
@@ -571,6 +578,7 @@
 				398E50291F304FB3005A434D /* RankViewController.swift in Sources */,
 				39254F8B1F1DF3FC00BBE6F0 /* WaterFallViewController.swift in Sources */,
 				398CBA011F0105600064B37E /* ViewController.swift in Sources */,
+				398E50331F30811B005A434D /* AnchorModel.swift in Sources */,
 				39254F891F1DF3F000BBE6F0 /* HYNavigationController.swift in Sources */,
 				39254F821F1DF38300BBE6F0 /* HYPageView.swift in Sources */,
 				39254F831F1DF38300BBE6F0 /* HYTitleView.swift in Sources */,
