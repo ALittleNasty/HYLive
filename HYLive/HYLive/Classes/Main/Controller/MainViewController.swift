@@ -29,6 +29,8 @@ class MainViewController: UITabBarController {
         homeVC.tabBarItem = UITabBarItem(title: "首页", image: UIImage(named:"live-n"), selectedImage: UIImage(named:"live-p"))
         homeVC.tabBarItem.setTitleTextAttributes(normalAttribute, for: .normal)
         homeVC.tabBarItem.setTitleTextAttributes(selectedAttribute, for: .selected)
+        let homeNavi = HYNavigationController(rootViewController: homeVC)
+        
         
         let rankVC = RankViewController()
         rankVC.tabBarItem = UITabBarItem(title: "排行", image: UIImage(named:"ranking-n"), selectedImage: UIImage(named:"ranking-p"))
@@ -45,11 +47,6 @@ class MainViewController: UITabBarController {
         profileVC.tabBarItem.setTitleTextAttributes(normalAttribute, for: .normal)
         profileVC.tabBarItem.setTitleTextAttributes(selectedAttribute, for: .selected)
         
-        viewControllers = [homeVC, rankVC, discoveryVC, profileVC] 
+        viewControllers = [homeNavi, rankVC, discoveryVC, profileVC]
     }
-}
-
-extension MainViewController : UITabBarControllerDelegate {
-
-    
 }

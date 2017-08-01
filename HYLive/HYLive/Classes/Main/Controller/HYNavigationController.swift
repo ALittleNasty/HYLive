@@ -53,8 +53,10 @@ class HYNavigationController: UINavigationController {
     }
     
     
-    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-        viewController.hidesBottomBarWhenPushed = true
-        super.pushViewController(viewController, animated: animated)
-    }
+//    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+//        if view.tag != 10086 {
+//            viewController.hidesBottomBarWhenPushed = true
+//        }
+//        super.pushViewController(viewController, animated: animated)
+//    }
 }
