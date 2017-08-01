@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        automaticallyAdjustsScrollViewInsets = false
         view.backgroundColor = UIColor.cyan
         setupUI()
     }
@@ -60,6 +61,15 @@ extension HomeViewController {
         
         let titles = homeTypes.map({$0.title})
         
+        var childVCs = [AnchorViewController]()
+        for type in homeTypes {
+            let anchorVC = AnchorViewController(nibName: "AnchorViewController", bundle: nil)
+            anchorVC.type = type.type
+            childVCs.append(anchorVC)
+        }
+        
+        let pageView = HYPageView(frame: frame, titles: titles, style: style, childVCs: childVCs, parentVC: self)
+        view.addSubview(pageView)
     }
     
     fileprivate func loadHomeTypeData() -> [HomeType] {

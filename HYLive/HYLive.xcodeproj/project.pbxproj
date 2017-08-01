@@ -38,6 +38,8 @@
 		39E305B21F2F27D0002CBDE3 /* QHNormalEmotionSort.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39E305B01F2F27D0002CBDE3 /* QHNormalEmotionSort.plist */; };
 		39E305B31F2F27D0002CBDE3 /* QHSohuGifSort.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39E305B11F2F27D0002CBDE3 /* QHSohuGifSort.plist */; };
 		39E305B51F2F280A002CBDE3 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E305B41F2F280A002CBDE3 /* Const.swift */; };
+		84A1DA181F30C5E2005F1153 /* AnchorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A1DA161F30C5E2005F1153 /* AnchorViewController.swift */; };
+		84A1DA191F30C5E2005F1153 /* AnchorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A1DA171F30C5E2005F1153 /* AnchorViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,8 @@
 		39E305B11F2F27D0002CBDE3 /* QHSohuGifSort.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = QHSohuGifSort.plist; sourceTree = "<group>"; };
 		39E305B41F2F280A002CBDE3 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		64E952CDC2B40DFDAEC06F95 /* Pods-HYLive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYLive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HYLive/Pods-HYLive.debug.xcconfig"; sourceTree = "<group>"; };
+		84A1DA161F30C5E2005F1153 /* AnchorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorViewController.swift; sourceTree = "<group>"; };
+		84A1DA171F30C5E2005F1153 /* AnchorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnchorViewController.xib; sourceTree = "<group>"; };
 		D72BDD81B0A7C15DBD5ADD00 /* Pods-HYLive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYLive.release.xcconfig"; path = "Pods/Target Support Files/Pods-HYLive/Pods-HYLive.release.xcconfig"; sourceTree = "<group>"; };
 		E66C073FE58BFBF3B079241B /* Pods_HYLive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HYLive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -271,6 +275,8 @@
 			isa = PBXGroup;
 			children = (
 				398E50261F304FA3005A434D /* HomeViewController.swift */,
+				84A1DA161F30C5E2005F1153 /* AnchorViewController.swift */,
+				84A1DA171F30C5E2005F1153 /* AnchorViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -503,6 +509,7 @@
 				39E305B21F2F27D0002CBDE3 /* QHNormalEmotionSort.plist in Resources */,
 				39E305B31F2F27D0002CBDE3 /* QHSohuGifSort.plist in Resources */,
 				39254F751F1DF1BC00BBE6F0 /* types.plist in Resources */,
+				84A1DA191F30C5E2005F1153 /* AnchorViewController.xib in Resources */,
 				398CBA041F0105600064B37E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -570,6 +577,7 @@
 				399BF4B41F1F47C200A0BF07 /* HYPageCollectionViewLayout.swift in Sources */,
 				398E502D1F304FD2005A434D /* ProfileViewController.swift in Sources */,
 				39254F911F1DFAC000BBE6F0 /* KingfisherExtension.swift in Sources */,
+				84A1DA181F30C5E2005F1153 /* AnchorViewController.swift in Sources */,
 				398E50311F3080B8005A434D /* HomeType.swift in Sources */,
 				398E500D1F3011C0005A434D /* BaseModel.swift in Sources */,
 				39254F811F1DF38300BBE6F0 /* HYPageStyle.swift in Sources */,
