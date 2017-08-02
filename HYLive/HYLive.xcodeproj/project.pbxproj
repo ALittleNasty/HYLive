@@ -41,6 +41,8 @@
 		39D553F61F319ED0007DAE47 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D553F41F319ED0007DAE47 /* RoomViewController.swift */; };
 		39D553F71F319ED0007DAE47 /* RoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39D553F51F319ED0007DAE47 /* RoomViewController.xib */; };
 		39D553FA1F31A043007DAE47 /* Resuable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D553F91F31A043007DAE47 /* Resuable.swift */; };
+		39D553FC1F31A7A4007DAE47 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D553FB1F31A7A4007DAE47 /* NibLoadable.swift */; };
+		39D553FE1F31A873007DAE47 /* Emitterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D553FD1F31A873007DAE47 /* Emitterable.swift */; };
 		39E305B21F2F27D0002CBDE3 /* QHNormalEmotionSort.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39E305B01F2F27D0002CBDE3 /* QHNormalEmotionSort.plist */; };
 		39E305B31F2F27D0002CBDE3 /* QHSohuGifSort.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39E305B11F2F27D0002CBDE3 /* QHSohuGifSort.plist */; };
 		39E305B51F2F280A002CBDE3 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E305B41F2F280A002CBDE3 /* Const.swift */; };
@@ -83,6 +85,8 @@
 		39D553F41F319ED0007DAE47 /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		39D553F51F319ED0007DAE47 /* RoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomViewController.xib; sourceTree = "<group>"; };
 		39D553F91F31A043007DAE47 /* Resuable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resuable.swift; sourceTree = "<group>"; };
+		39D553FB1F31A7A4007DAE47 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		39D553FD1F31A873007DAE47 /* Emitterable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emitterable.swift; sourceTree = "<group>"; };
 		39E305B01F2F27D0002CBDE3 /* QHNormalEmotionSort.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = QHNormalEmotionSort.plist; sourceTree = "<group>"; };
 		39E305B11F2F27D0002CBDE3 /* QHSohuGifSort.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = QHSohuGifSort.plist; sourceTree = "<group>"; };
 		39E305B41F2F280A002CBDE3 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -124,8 +128,8 @@
 				39D553F01F319EB5007DAE47 /* Live */,
 				398E50071F3011A3005A434D /* Base */,
 				39254F841F1DF3E600BBE6F0 /* Main */,
-				39254F7A1F1DF38300BBE6F0 /* CommonComponents */,
 				39254F771F1DF1FF00BBE6F0 /* Tools */,
+				39254F7A1F1DF38300BBE6F0 /* CommonComponents */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -475,6 +479,8 @@
 			isa = PBXGroup;
 			children = (
 				39D553F91F31A043007DAE47 /* Resuable.swift */,
+				39D553FB1F31A7A4007DAE47 /* NibLoadable.swift */,
+				39D553FD1F31A873007DAE47 /* Emitterable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -628,6 +634,7 @@
 				39254F791F1DF23700BBE6F0 /* UIColor-Extension.swift in Sources */,
 				39254F8F1F1DF4E200BBE6F0 /* NetworkTools.swift in Sources */,
 				398E50271F304FA3005A434D /* HomeViewController.swift in Sources */,
+				39D553FC1F31A7A4007DAE47 /* NibLoadable.swift in Sources */,
 				39254F801F1DF38300BBE6F0 /* HYContentView.swift in Sources */,
 				39254F931F1E03D300BBE6F0 /* HYPageCollectionView.swift in Sources */,
 				399BF4B41F1F47C200A0BF07 /* HYPageCollectionViewLayout.swift in Sources */,
@@ -652,6 +659,7 @@
 				39D553F61F319ED0007DAE47 /* RoomViewController.swift in Sources */,
 				398CB9FF1F0105600064B37E /* AppDelegate.swift in Sources */,
 				398E50111F30143A005A434D /* MainViewController.swift in Sources */,
+				39D553FE1F31A873007DAE47 /* Emitterable.swift in Sources */,
 				39254F8D1F1DF40700BBE6F0 /* HYWaterfallLayout.swift in Sources */,
 				39E305B51F2F280A002CBDE3 /* Const.swift in Sources */,
 			);
