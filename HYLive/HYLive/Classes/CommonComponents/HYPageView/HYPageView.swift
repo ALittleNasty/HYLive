@@ -44,7 +44,7 @@ extension HYPageView {
         // 1.添加titleView
         let titleFrame = CGRect(x: 0, y: 0, width: bounds.width, height: style.titleHeight)
         let titleView = HYTitleView(frame: titleFrame, titles: titles, style: style)
-        titleView.backgroundColor = UIColor.cyan
+        titleView.backgroundColor = UIColor.white
         addSubview(titleView)
         
         // 2.添加contentView

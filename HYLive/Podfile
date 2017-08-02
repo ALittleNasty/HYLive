@@ -6,5 +6,6 @@ target 'HYLive' do
 
 pod 'Alamofire', '~> 4.5'
 pod 'Kingfisher', '~> 3.10.3'
+pod 'SnapKit', '~> 3.2.0'
 
 end

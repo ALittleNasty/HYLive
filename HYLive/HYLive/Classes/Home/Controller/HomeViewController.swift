@@ -55,6 +55,7 @@ extension HomeViewController {
         
         let style = HYPageStyle()
         style.isTitleViewScrollEnable = true
+        style.isShowBottomLine = true
         
         let height = kScreenHeight - kNavigationBarHeight - kStatusBarHeight - kTabBarHeight
         let frame = CGRect(x: 0, y: kNavigationBarHeight + kStatusBarHeight, width: kScreenWidth, height: height)
@@ -63,7 +64,7 @@ extension HomeViewController {
         
         var childVCs = [AnchorViewController]()
         for type in homeTypes {
-            let anchorVC = AnchorViewController(nibName: "AnchorViewController", bundle: nil)
+            let anchorVC = AnchorViewController()
             anchorVC.type = type.type
             childVCs.append(anchorVC)
         }

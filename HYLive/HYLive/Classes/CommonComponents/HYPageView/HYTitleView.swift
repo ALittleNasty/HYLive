@@ -215,6 +215,14 @@ extension HYTitleView {
         // 2.通知代理, 与contentView进行联动
         // ?. 可选链:  若可选类型有值将会执行代码, 否则什么也不干
         delegate?.titleView(self, targetIndex: selectedIndex)
+        
+        var offsetX = targetLabel.center.x - bounds.width * 0.5
+        if offsetX < 0.0 {
+            offsetX = 0.0
+        } else if offsetX > scrollView.contentSize.width - scrollView.bounds.width {
+            offsetX = scrollView.contentSize.width - scrollView.bounds.width
+        }
+        scrollView.setContentOffset(CGPoint(x: offsetX, y: 0.0), animated: true);
     }
     
     fileprivate func adjustTitleLabels(_ targetLabel: UILabel) {
