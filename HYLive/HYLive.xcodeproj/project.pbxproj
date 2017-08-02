@@ -35,6 +35,9 @@
 		398E50311F3080B8005A434D /* HomeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398E50301F3080B8005A434D /* HomeType.swift */; };
 		398E50331F30811B005A434D /* AnchorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398E50321F30811B005A434D /* AnchorModel.swift */; };
 		399BF4B41F1F47C200A0BF07 /* HYPageCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399BF4B31F1F47C200A0BF07 /* HYPageCollectionViewLayout.swift */; };
+		39D553EC1F31675C007DAE47 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D553EA1F31675C007DAE47 /* HomeViewCell.swift */; };
+		39D553ED1F31675C007DAE47 /* HomeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39D553EB1F31675C007DAE47 /* HomeViewCell.xib */; };
+		39D553EF1F316C06007DAE47 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D553EE1F316C06007DAE47 /* HomeViewModel.swift */; };
 		39E305B21F2F27D0002CBDE3 /* QHNormalEmotionSort.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39E305B01F2F27D0002CBDE3 /* QHNormalEmotionSort.plist */; };
 		39E305B31F2F27D0002CBDE3 /* QHSohuGifSort.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39E305B11F2F27D0002CBDE3 /* QHSohuGifSort.plist */; };
 		39E305B51F2F280A002CBDE3 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E305B41F2F280A002CBDE3 /* Const.swift */; };
@@ -71,6 +74,9 @@
 		398E50301F3080B8005A434D /* HomeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeType.swift; sourceTree = "<group>"; };
 		398E50321F30811B005A434D /* AnchorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorModel.swift; sourceTree = "<group>"; };
 		399BF4B31F1F47C200A0BF07 /* HYPageCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYPageCollectionViewLayout.swift; sourceTree = "<group>"; };
+		39D553EA1F31675C007DAE47 /* HomeViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
+		39D553EB1F31675C007DAE47 /* HomeViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewCell.xib; sourceTree = "<group>"; };
+		39D553EE1F316C06007DAE47 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		39E305B01F2F27D0002CBDE3 /* QHNormalEmotionSort.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = QHNormalEmotionSort.plist; sourceTree = "<group>"; };
 		39E305B11F2F27D0002CBDE3 /* QHSohuGifSort.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = QHSohuGifSort.plist; sourceTree = "<group>"; };
 		39E305B41F2F280A002CBDE3 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -120,13 +126,13 @@
 		39254F771F1DF1FF00BBE6F0 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				39E305B41F2F280A002CBDE3 /* Const.swift */,
 				39254F8C1F1DF40700BBE6F0 /* HYWaterfallLayout.swift */,
 				399BF4B31F1F47C200A0BF07 /* HYPageCollectionViewLayout.swift */,
 				39254F781F1DF23700BBE6F0 /* UIColor-Extension.swift */,
 				398E500E1F30122A005A434D /* NSDate-Extension.swift */,
-				39254F8E1F1DF4E200BBE6F0 /* NetworkTools.swift */,
 				39254F901F1DFAC000BBE6F0 /* KingfisherExtension.swift */,
-				39E305B41F2F280A002CBDE3 /* Const.swift */,
+				39254F8E1F1DF4E200BBE6F0 /* NetworkTools.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -290,6 +296,8 @@
 		398E50151F304F34005A434D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				39D553EA1F31675C007DAE47 /* HomeViewCell.swift */,
+				39D553EB1F31675C007DAE47 /* HomeViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -297,6 +305,7 @@
 		398E50161F304F34005A434D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				39D553EE1F316C06007DAE47 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -503,6 +512,7 @@
 			files = (
 				398CBA091F0105600064B37E /* LaunchScreen.storyboard in Resources */,
 				398CBA061F0105600064B37E /* Assets.xcassets in Resources */,
+				39D553ED1F31675C007DAE47 /* HomeViewCell.xib in Resources */,
 				39E305B21F2F27D0002CBDE3 /* QHNormalEmotionSort.plist in Resources */,
 				39E305B31F2F27D0002CBDE3 /* QHSohuGifSort.plist in Resources */,
 				39254F751F1DF1BC00BBE6F0 /* types.plist in Resources */,
@@ -575,6 +585,7 @@
 				39254F911F1DFAC000BBE6F0 /* KingfisherExtension.swift in Sources */,
 				84A1DA181F30C5E2005F1153 /* AnchorViewController.swift in Sources */,
 				398E50311F3080B8005A434D /* HomeType.swift in Sources */,
+				39D553EF1F316C06007DAE47 /* HomeViewModel.swift in Sources */,
 				398E500D1F3011C0005A434D /* BaseModel.swift in Sources */,
 				39254F811F1DF38300BBE6F0 /* HYPageStyle.swift in Sources */,
 				398E500F1F30122A005A434D /* NSDate-Extension.swift in Sources */,
@@ -586,6 +597,7 @@
 				39254F891F1DF3F000BBE6F0 /* HYNavigationController.swift in Sources */,
 				39254F821F1DF38300BBE6F0 /* HYPageView.swift in Sources */,
 				39254F831F1DF38300BBE6F0 /* HYTitleView.swift in Sources */,
+				39D553EC1F31675C007DAE47 /* HomeViewCell.swift in Sources */,
 				398CB9FF1F0105600064B37E /* AppDelegate.swift in Sources */,
 				398E50111F30143A005A434D /* MainViewController.swift in Sources */,
 				39254F8D1F1DF40700BBE6F0 /* HYWaterfallLayout.swift in Sources */,

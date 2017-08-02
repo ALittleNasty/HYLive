@@ -65,7 +65,7 @@ extension HomeViewController {
         var childVCs = [AnchorViewController]()
         for type in homeTypes {
             let anchorVC = AnchorViewController()
-            anchorVC.type = type.type
+            anchorVC.type = type
             childVCs.append(anchorVC)
         }
         

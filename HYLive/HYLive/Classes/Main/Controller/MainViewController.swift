@@ -48,5 +48,7 @@ class MainViewController: UITabBarController {
         profileVC.tabBarItem.setTitleTextAttributes(selectedAttribute, for: .selected)
         
         viewControllers = [homeNavi, rankVC, discoveryVC, profileVC]
+        
+        tabBar.barTintColor = UIColor.white
     }
 }

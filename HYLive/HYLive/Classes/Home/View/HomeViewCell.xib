@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="anchorCellIdentifier" id="gTV-IL-0wX" customClass="HomeViewCell" customModule="HYLive" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="163" height="167"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="163" height="167"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oMm-dc-Jsq">
+                        <rect key="frame" x="0.0" y="0.0" width="163" height="167"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_icon_live" translatesAutoresizingMaskIntoConstraints="NO" id="jPj-8Y-Avk">
+                        <rect key="frame" x="129" y="10" width="24" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="24" id="8vC-YT-AhI"/>
+                            <constraint firstAttribute="height" constant="14" id="tc8-qv-FwN"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="诗诗女神" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7w8-Wm-xQd">
+                        <rect key="frame" x="10" y="142.5" width="50" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TMz-eh-3E6">
+                        <rect key="frame" x="75" y="142" width="33" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" title="1123" image="home_icon_people">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="7w8-Wm-xQd" secondAttribute="bottom" constant="10" id="2Hv-WG-EU6"/>
+                <constraint firstItem="jPj-8Y-Avk" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="Gbp-Xo-PJT"/>
+                <constraint firstItem="7w8-Wm-xQd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="Hkv-gr-cJ6"/>
+                <constraint firstAttribute="trailing" secondItem="oMm-dc-Jsq" secondAttribute="trailing" id="S9x-wq-OHU"/>
+                <constraint firstItem="oMm-dc-Jsq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ZRm-oF-95k"/>
+                <constraint firstItem="TMz-eh-3E6" firstAttribute="leading" secondItem="7w8-Wm-xQd" secondAttribute="trailing" constant="15" id="ZUm-bC-p4y"/>
+                <constraint firstAttribute="bottom" secondItem="oMm-dc-Jsq" secondAttribute="bottom" id="fOC-mk-t0W"/>
+                <constraint firstAttribute="bottom" secondItem="TMz-eh-3E6" secondAttribute="bottom" constant="10" id="kx5-D3-lgu"/>
+                <constraint firstAttribute="trailing" secondItem="jPj-8Y-Avk" secondAttribute="trailing" constant="10" id="tCW-cR-Nlp"/>
+                <constraint firstItem="oMm-dc-Jsq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="xSJ-wf-qWi"/>
+            </constraints>
+            <size key="customSize" width="163" height="167"/>
+            <connections>
+                <outlet property="albumImageView" destination="oMm-dc-Jsq" id="NTc-8E-CJj"/>
+                <outlet property="liveImageView" destination="jPj-8Y-Avk" id="Wu6-6C-8yu"/>
+                <outlet property="nickNameLabel" destination="7w8-Wm-xQd" id="wUQ-VA-erb"/>
+                <outlet property="onlinePeopleBtn" destination="TMz-eh-3E6" id="YID-rn-a6c"/>
+            </connections>
+            <point key="canvasLocation" x="90.5" y="112.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="home_icon_live" width="23" height="13"/>
+        <image name="home_icon_people" width="7" height="7"/>
+    </resources>
+</document>
