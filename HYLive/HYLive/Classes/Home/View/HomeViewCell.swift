@@ -8,8 +8,12 @@
 
 import UIKit
 
-class HomeViewCell: UICollectionViewCell {
+class HomeViewCell: UICollectionViewCell, Resuable {
 
+    static var nib: UINib? {
+        return UINib(nibName: "HomeViewCell", bundle: nil)
+    }
+    
     // MARK: - 控件
     @IBOutlet weak var albumImageView: UIImageView!
     @IBOutlet weak var liveImageView: UIImageView!
@@ -32,7 +36,7 @@ class HomeViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        albumImageView.layer.cornerRadius = 8.0
+        albumImageView.layer.cornerRadius = 5.0
         albumImageView.layer.masksToBounds = true
     }
 

@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 private let padding : CGFloat = 8
-private let anchorCellID = "anchorCellIdentifier"
+//private let anchorCellID = "anchorCellIdentifier"
 
 class AnchorViewController: UIViewController {
     
@@ -31,8 +31,9 @@ class AnchorViewController: UIViewController {
         let collectionView = UICollectionView(frame: frame, collectionViewLayout:layout)
         collectionView.dataSource = self
         collectionView.delegate = self
-        let nib = UINib(nibName: "HomeViewCell", bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: anchorCellID)
+//        let nib = UINib(nibName: "HomeViewCell", bundle: nil)
+//        collectionView.register(nib, forCellWithReuseIdentifier: anchorCellID)
+        collectionView.registerCell(HomeViewCell.self)
         collectionView.backgroundColor = .white
         return collectionView
     }()
@@ -61,7 +62,10 @@ extension AnchorViewController {
 extension AnchorViewController : UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("did selected an index \(indexPath.item)")
+        
+        let roomVC = RoomViewController(nibName: "RoomViewController", bundle: nil)
+        roomVC.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(roomVC, animated: true)
     }
 }
 
@@ -78,7 +82,8 @@ extension AnchorViewController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: anchorCellID, for: indexPath) as! HomeViewCell
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: anchorCellID, for: indexPath) as! HomeViewCell
+        let cell = collectionView.dequeueReusableCell(at: indexPath) as HomeViewCell
         
         cell.anchorModel = homeVM.anchorModels[indexPath.item]
         if indexPath.item == homeVM.anchorModels.count - 1 {

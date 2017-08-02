@@ -38,6 +38,9 @@
 		39D553EC1F31675C007DAE47 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D553EA1F31675C007DAE47 /* HomeViewCell.swift */; };
 		39D553ED1F31675C007DAE47 /* HomeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39D553EB1F31675C007DAE47 /* HomeViewCell.xib */; };
 		39D553EF1F316C06007DAE47 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D553EE1F316C06007DAE47 /* HomeViewModel.swift */; };
+		39D553F61F319ED0007DAE47 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D553F41F319ED0007DAE47 /* RoomViewController.swift */; };
+		39D553F71F319ED0007DAE47 /* RoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39D553F51F319ED0007DAE47 /* RoomViewController.xib */; };
+		39D553FA1F31A043007DAE47 /* Resuable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D553F91F31A043007DAE47 /* Resuable.swift */; };
 		39E305B21F2F27D0002CBDE3 /* QHNormalEmotionSort.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39E305B01F2F27D0002CBDE3 /* QHNormalEmotionSort.plist */; };
 		39E305B31F2F27D0002CBDE3 /* QHSohuGifSort.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39E305B11F2F27D0002CBDE3 /* QHSohuGifSort.plist */; };
 		39E305B51F2F280A002CBDE3 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E305B41F2F280A002CBDE3 /* Const.swift */; };
@@ -77,6 +80,9 @@
 		39D553EA1F31675C007DAE47 /* HomeViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 		39D553EB1F31675C007DAE47 /* HomeViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewCell.xib; sourceTree = "<group>"; };
 		39D553EE1F316C06007DAE47 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		39D553F41F319ED0007DAE47 /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		39D553F51F319ED0007DAE47 /* RoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomViewController.xib; sourceTree = "<group>"; };
+		39D553F91F31A043007DAE47 /* Resuable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resuable.swift; sourceTree = "<group>"; };
 		39E305B01F2F27D0002CBDE3 /* QHNormalEmotionSort.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = QHNormalEmotionSort.plist; sourceTree = "<group>"; };
 		39E305B11F2F27D0002CBDE3 /* QHSohuGifSort.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = QHSohuGifSort.plist; sourceTree = "<group>"; };
 		39E305B41F2F280A002CBDE3 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -115,6 +121,7 @@
 				398E50171F304F41005A434D /* Rank */,
 				398E501C1F304F65005A434D /* Discovery */,
 				398E50211F304F76005A434D /* Profile */,
+				39D553F01F319EB5007DAE47 /* Live */,
 				398E50071F3011A3005A434D /* Base */,
 				39254F841F1DF3E600BBE6F0 /* Main */,
 				39254F7A1F1DF38300BBE6F0 /* CommonComponents */,
@@ -140,6 +147,7 @@
 		39254F7A1F1DF38300BBE6F0 /* CommonComponents */ = {
 			isa = PBXGroup;
 			children = (
+				39D553F81F31A01F007DAE47 /* Protocols */,
 				39254F7B1F1DF38300BBE6F0 /* HYPageView */,
 			);
 			path = CommonComponents;
@@ -430,6 +438,47 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		39D553F01F319EB5007DAE47 /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				39D553F11F319EB5007DAE47 /* Controller */,
+				39D553F21F319EB5007DAE47 /* Model */,
+				39D553F31F319EB5007DAE47 /* View */,
+			);
+			path = Live;
+			sourceTree = "<group>";
+		};
+		39D553F11F319EB5007DAE47 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				39D553F41F319ED0007DAE47 /* RoomViewController.swift */,
+				39D553F51F319ED0007DAE47 /* RoomViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		39D553F21F319EB5007DAE47 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		39D553F31F319EB5007DAE47 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		39D553F81F31A01F007DAE47 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				39D553F91F31A043007DAE47 /* Resuable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		5B96A9C9406A80E0666418C1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -513,6 +562,7 @@
 				398CBA091F0105600064B37E /* LaunchScreen.storyboard in Resources */,
 				398CBA061F0105600064B37E /* Assets.xcassets in Resources */,
 				39D553ED1F31675C007DAE47 /* HomeViewCell.xib in Resources */,
+				39D553F71F319ED0007DAE47 /* RoomViewController.xib in Resources */,
 				39E305B21F2F27D0002CBDE3 /* QHNormalEmotionSort.plist in Resources */,
 				39E305B31F2F27D0002CBDE3 /* QHSohuGifSort.plist in Resources */,
 				39254F751F1DF1BC00BBE6F0 /* types.plist in Resources */,
@@ -593,11 +643,13 @@
 				398E50291F304FB3005A434D /* RankViewController.swift in Sources */,
 				39254F8B1F1DF3FC00BBE6F0 /* WaterFallViewController.swift in Sources */,
 				398CBA011F0105600064B37E /* ViewController.swift in Sources */,
+				39D553FA1F31A043007DAE47 /* Resuable.swift in Sources */,
 				398E50331F30811B005A434D /* AnchorModel.swift in Sources */,
 				39254F891F1DF3F000BBE6F0 /* HYNavigationController.swift in Sources */,
 				39254F821F1DF38300BBE6F0 /* HYPageView.swift in Sources */,
 				39254F831F1DF38300BBE6F0 /* HYTitleView.swift in Sources */,
 				39D553EC1F31675C007DAE47 /* HomeViewCell.swift in Sources */,
+				39D553F61F319ED0007DAE47 /* RoomViewController.swift in Sources */,
 				398CB9FF1F0105600064B37E /* AppDelegate.swift in Sources */,
 				398E50111F30143A005A434D /* MainViewController.swift in Sources */,
 				39254F8D1F1DF40700BBE6F0 /* HYWaterfallLayout.swift in Sources */,
