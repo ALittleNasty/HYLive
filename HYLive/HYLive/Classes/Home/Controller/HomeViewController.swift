@@ -60,6 +60,7 @@ extension HomeViewController {
         let height = kScreenHeight - kNavigationBarHeight - kStatusBarHeight - kTabBarHeight
         let frame = CGRect(x: 0, y: kNavigationBarHeight + kStatusBarHeight, width: kScreenWidth, height: height)
         
+        
         let titles = homeTypes.map({$0.title})
         
         var childVCs = [AnchorViewController]()

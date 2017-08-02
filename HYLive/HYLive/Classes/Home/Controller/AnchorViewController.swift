@@ -26,7 +26,9 @@ class AnchorViewController: UIViewController {
         layout.minimumInteritemSpacing = padding
         layout.dataSource = self
         
-        let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout:layout)
+        let height = kScreenHeight - kNavigationBarHeight - kStatusBarHeight - kTabBarHeight - 44.0
+        let frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: height)
+        let collectionView = UICollectionView(frame: frame, collectionViewLayout:layout)
         collectionView.dataSource = self
         collectionView.delegate = self
         let nib = UINib(nibName: "HomeViewCell", bundle: nil)
@@ -38,7 +40,6 @@ class AnchorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         view.addSubview(collectionView)
         loadData(index: 0)
     }
@@ -47,6 +48,7 @@ class AnchorViewController: UIViewController {
 // MARK: - Util
 extension AnchorViewController {
 
+    // MARK: - 加载数据
     fileprivate func loadData(index: Int) {
     
         homeVM.loadHomeData(type: type, index: index) { 
@@ -84,7 +86,6 @@ extension AnchorViewController : UICollectionViewDataSource {
         }
         
         return cell
-        
     }
 }
 

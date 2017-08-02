@@ -91,6 +91,7 @@ extension HYContentView: UICollectionViewDataSource {
         
         // 重新添加当前控制器的视图
         let currentVC = childVCs[indexPath.item]
+        currentVC.view.frame = cell.contentView.bounds
         cell.contentView.addSubview(currentVC.view)
         
         return cell

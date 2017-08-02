@@ -10,6 +10,7 @@ import UIKit
 
 class HomeViewModel {
     
+    // MARK: - 对外公开的原创作者的数据模型数组
     public lazy var anchorModels = [AnchorModel]()
 }
 

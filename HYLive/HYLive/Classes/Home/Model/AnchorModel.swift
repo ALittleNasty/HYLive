@@ -17,5 +17,5 @@ class AnchorModel: BaseModel {
     var name: String = ""   // 名称
     var pic51: String = ""  // 图片链接
     var pic74: String = ""  // 图片链接
-    var isEventIndex: Bool = false    
+    var isEventIndex: Bool = false // 是否使用大图
 }

@@ -42,13 +42,13 @@ extension HYPageView {
 
     fileprivate func setupUI() {
         // 1.添加titleView
-        let titleFrame = CGRect(x: 0, y: 0, width: bounds.width, height: style.titleHeight)
+        let titleFrame = CGRect(x: 0, y: 0, width: frame.width, height: style.titleHeight)
         let titleView = HYTitleView(frame: titleFrame, titles: titles, style: style)
         titleView.backgroundColor = UIColor.white
         addSubview(titleView)
         
         // 2.添加contentView
-        let contentFrame = CGRect(x: 0, y: titleFrame.maxY, width: bounds.width, height: bounds.height - style.titleHeight)
+        let contentFrame = CGRect(x: 0, y: titleFrame.maxY, width: frame.width, height: frame.height - style.titleHeight)
         let contentView = HYContentView(frame: contentFrame, childVCs: childVCs, parentVC: parentVC)
         contentView.backgroundColor = UIColor.cyan
         addSubview(contentView)
